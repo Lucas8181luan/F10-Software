@@ -1,5 +1,4 @@
 import pyautogui 
-import subprocess
 import time
 import pytesseract
 import Funções
@@ -12,16 +11,15 @@ import ctypes
 USUÁRIO = input('\033[34mDigite "OK" para iniciar programar = \033[0m').upper().strip() # resposta do usuário
 # -> START
 if USUÁRIO == "OK": # condição para rodar o programar
-    for vezes in range(3):
+    time.sleep(10) # colocar contagem aqui (chrome) -> (f10) abrir
+    for vezes in range(3): 
         #====================== BUTÃO ADICIONAR (POSITION) ============================#
         pyautogui.moveTo(x=-1687, y=159) # mover para o butão +
         pyautogui.click() # clicar no butão +
         time.sleep(5)
         #============================= ABRIR EXCEL ====================================#
         if vezes == 0:
-            chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-            url = "https://docs.google.com/spreadsheets/d/1JrIQ34CDatOb-2kFIt50inUjIt2tYcULB1NJiC94mF4/edit?gid=1579823280#gid=1579823280"  
-            subprocess.Popen([chrome_path, url]) # abrir a página
+            pyautogui.hotkey('alt', 'tab') # Chrome
         #===================== PRIMEIRA LINHA PARA LEITURA ============================#
             pyautogui.moveTo(x=-1109, y=556) # mover para primeira linha de "CPF" da panilha
             time.sleep(20)
@@ -112,15 +110,15 @@ if USUÁRIO == "OK": # condição para rodar o programar
             pyautogui.click() # clicar
             #=========================== BUTÃO GRAVAR =====================================#
             time.sleep(3)
-            pyautogui.moveTo(x=-589, y=868) # mover para o butão proximo
+            pyautogui.moveTo(x=-589, y=868) # mover para o butão gravar
             #pyautogui.click() # clicar
-            time.sleep(5)
+            time.sleep(10) ##### ------ ccolocar para "5"
 #================================================= EXCEL ====================================================#
         pyautogui.hotkey('alt', 'tab') # Chrome
         time.sleep(2)
-        pyautogui.moveTo(x=-559, y=89) # clique na página
+        pyautogui.moveTo(x=-488, y=85) # clique na página
         pyautogui.click() # clicar
-        time.sleep(5)
+        time.sleep(2)
         Funções.marcar_ok() # marca OK
         time.sleep(2)
         Funções.voltar_para_cpf()
