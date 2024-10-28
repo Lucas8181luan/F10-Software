@@ -8,11 +8,18 @@ import ctypes
 # >> Deixar página do F10 aberta
 
 #======================= INICIAR PROGRAMRA ====================================#
-USUÁRIO = input('\033[34mDigite "OK" para iniciar programar = \033[0m').upper().strip() # resposta do usuário
+print("\033[34m=" * 40)
+USUÁRIO = input('\033[34mDigite \033[97m"OK\033[0m" \033[34mpara iniciar programar = \033[0m'.center(40)).upper().strip() # resposta do usuário
+print("\033[34m=\033[0m" * 40)
+Funções.RESPOSTA_DO_USUÁRIO() #------------------------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>> RESPOSTA DO USUÁRIO
+time.sleep(2)
+Funções.Direcionar_usuário()
+time.sleep(1)
+#==============================================================================#
 # -> START
 if USUÁRIO == "OK": # condição para rodar o programar
     time.sleep(10) # colocar contagem aqui (chrome) -> (f10) abrir
-    for vezes in range(3): 
+    for vezes in range(5): 
         #====================== BUTÃO ADICIONAR (POSITION) ============================#
         pyautogui.moveTo(x=-1687, y=159) # mover para o butão + >>>>>(CORDENADAS)<<<<< 1º
         pyautogui.click() # clicar no butão +
@@ -52,7 +59,7 @@ if USUÁRIO == "OK": # condição para rodar o programar
         pyautogui.click() # click
         time.sleep(2)
         Funções.apagar_CEP()
-        time.sleep(1)
+        time.sleep(3)
         pyautogui.hotkey('ctrl', 'v') # colar o "CEP"
         #============================ BUTÃO PROXIMO ====================================#
         time.sleep(2)
@@ -64,9 +71,7 @@ if USUÁRIO == "OK": # condição para rodar o programar
         pyautogui.moveTo(x=-1438, y=413) # butão escolher tipo de contrato >>>>>(CORDENADAS)<<<<< 7º
         pyautogui.click() # clicar
         time.sleep(3)
-        pyautogui.moveTo(x=-1545, y=436) # opção - "bolsa" >>>>>(CORDENADAS)<<<<< 8º
-        pyautogui.click() # clicar
-        time.sleep(3)
+        Funções.Tipo_de_Contarto() #------------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
         #============ OPÇÃO - DATA DA MATRÍCULA ==============#
         pyautogui.moveTo(x=-1409, y=474) # butão escolher a data da matrícula >>>>>(CORDENADAS)<<<<< 9º
         pyautogui.click() # clicar
@@ -143,4 +148,8 @@ if USUÁRIO == "OK": # condição para rodar o programar
         pyautogui.hotkey('alt', 'tab') # F10
         time.sleep(5)
 
-print("\033[31mPROGRAMA ENCERRADO!\033[0m")
+print("\033[31m=" * 40)
+print("PROGRAMA ENCERRADO!".center(40))
+print("=" * 40)
+
+# COLOCAR PARA ESCEVER NAS ABAS EM VEZ DE COLOCAR PELA COORDENADAS E PEDIR PARA O USUÁRIO ESCOLHER AS OPÇÕES 
