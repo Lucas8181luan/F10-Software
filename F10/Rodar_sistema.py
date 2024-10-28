@@ -47,7 +47,7 @@ if USUÁRIO == "OK": # condição para rodar o programar
         time.sleep(1)
         pyautogui.hotkey('alt', 'tab') # F10
         time.sleep(2)
-        pyautogui.moveTo(x=-1590, y=631) # move para o CEP >>>>>(CORDENADAS)<<<<< º
+        pyautogui.moveTo(x=-1590, y=631) # move para o CEP >>>>>(CORDENADAS)<<<<< 5º
         time.sleep(2)
         pyautogui.click() # click
         time.sleep(2)
@@ -56,56 +56,56 @@ if USUÁRIO == "OK": # condição para rodar o programar
         pyautogui.hotkey('ctrl', 'v') # colar o "CEP"
         #============================ BUTÃO PROXIMO ====================================#
         time.sleep(2)
-        pyautogui.moveTo(x=-830, y=865) # mover para o butão proximo >>>>>(CORDENADAS)<<<<< 5º
+        pyautogui.moveTo(x=-830, y=865) # mover para o butão proximo >>>>>(CORDENADAS)<<<<< 6º
         pyautogui.click() # clicar
         time.sleep(3)
         #=============================== PARTE - 2 =====================================#
         #================ TIPO DE CONTRATO ==================#
-        pyautogui.moveTo(x=-1438, y=413) # butão escolher tipo de contrato >>>>>(CORDENADAS)<<<<< 6º
+        pyautogui.moveTo(x=-1438, y=413) # butão escolher tipo de contrato >>>>>(CORDENADAS)<<<<< 7º
         pyautogui.click() # clicar
         time.sleep(3)
-        pyautogui.moveTo(x=-1545, y=436) # opção - "bolsa" >>>>>(CORDENADAS)<<<<< 7º
+        pyautogui.moveTo(x=-1545, y=436) # opção - "bolsa" >>>>>(CORDENADAS)<<<<< 8º
         pyautogui.click() # clicar
         time.sleep(3)
         #============ OPÇÃO - DATA DA MATRÍCULA ==============#
-        pyautogui.moveTo(x=-1409, y=474) # butão escolher a data da matrícula >>>>>(CORDENADAS)<<<<< 8º
+        pyautogui.moveTo(x=-1409, y=474) # butão escolher a data da matrícula >>>>>(CORDENADAS)<<<<< 9º
         pyautogui.click() # clicar
         time.sleep(3)
-        pyautogui.moveTo(x=-1404, y=556) # DATA DEJESADA <-------------- >>>>>(CORDENADAS)<<<<< 9º
+        pyautogui.moveTo(x=-1404, y=556) # DATA DEJESADA <-------------- >>>>>(CORDENADAS)<<<<< 10º
         pyautogui.click() # clicar
         time.sleep(3)
         #================ OPÇÃO - EVENTO =====================#
-        pyautogui.moveTo(x=-1287, y=530) # butaõ escolher evento >>>>>(CORDENADAS)<<<<< 10º
+        pyautogui.moveTo(x=-1287, y=530) # butaõ escolher evento >>>>>(CORDENADAS)<<<<< 11º
         pyautogui.click() # clicar
         time.sleep(3)
-        pyautogui.moveTo(x=-1290, y=579) # opção - RIO + CURSOS >>>>>(CORDENADAS)<<<<< 11º
+        pyautogui.moveTo(x=-1290, y=579) # opção - RIO + CURSOS >>>>>(CORDENADAS)<<<<< 12º
         pyautogui.click() # clicar
         time.sleep(3)
         #================= OPÇÃO - CURSO =====================#
-        pyautogui.moveTo(x=-1293, y=588) # butão escolher opção curso >>>>>(CORDENADAS)<<<<< 12º
+        pyautogui.moveTo(x=-1293, y=588) # butão escolher opção curso >>>>>(CORDENADAS)<<<<< 13º
         pyautogui.click() # clicar
         time.sleep(3)
-        pyautogui.moveTo(x=-1428, y=615) # CURSO DEJESADO <-------------- >>>>>(CORDENADAS)<<<<< 13º
+        pyautogui.moveTo(x=-1428, y=615) # CURSO DEJESADO <-------------- >>>>>(CORDENADAS)<<<<< 14º
         pyautogui.click() # clicar
         time.sleep(3)
         #=============== OPÇÃO - COORDENADOR =================#
-        pyautogui.moveTo(x=-1290, y=640) # butão escolher opção coordenador >>>>>(CORDENADAS)<<<<< 14º
+        pyautogui.moveTo(x=-1290, y=640) # butão escolher opção coordenador >>>>>(CORDENADAS)<<<<< 15º
         pyautogui.click() # clicar
-        pyautogui.moveTo(x=-1422, y=728) # COORDENADOR DESEJADO <-------------- >>>>>(CORDENADAS)<<<<< 15º
+        pyautogui.moveTo(x=-1422, y=728) # COORDENADOR DESEJADO <-------------- >>>>>(CORDENADAS)<<<<< 16º
         pyautogui.click() # clicar
         #============================ BUTÃO PROXIMO ====================================#
         time.sleep(2)
-        pyautogui.moveTo(x=-672, y=870) # mover para o 2º butão proximo >>>>>(CORDENADAS)<<<<< 16º
+        pyautogui.moveTo(x=-672, y=870) # mover para o 2º butão proximo >>>>>(CORDENADAS)<<<<< 17º
         pyautogui.click() # clicar
         time.sleep(3)
         #=============================== PARTE - 3 =====================================#
-        pyautogui.moveTo(x=-469, y=453) # butão escolher polo >>>>>(CORDENADAS)<<<<< 17º
+        pyautogui.moveTo(x=-469, y=453) # butão escolher polo >>>>>(CORDENADAS)<<<<< 18º
         pyautogui.click() # clicar
         time.sleep(3)
-        pyautogui.moveTo(x=-700, y=473) # opção - rio + curso >>>>>(CORDENADAS)<<<<< 18º
+        pyautogui.moveTo(x=-700, y=473) # opção - rio + curso >>>>>(CORDENADAS)<<<<< 19º
         pyautogui.click() # clicar
         time.sleep(3)
-        pyautogui.moveTo(x=-1635, y=546) # opção de turma (para verificar a captura de tela) >>>>>(CORDENADAS)<<<<< 19º
+        pyautogui.moveTo(x=-1635, y=546) # opção de turma (para verificar a captura de tela) >>>>>(CORDENADAS)<<<<< 20º
         time.sleep(3)
         #------
         pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe' # especifique o caminho do Tesseract, se necessário
@@ -113,25 +113,25 @@ if USUÁRIO == "OK": # condição para rodar o programar
         text = pytesseract.image_to_string(captura_de_tela) # converte a imagem em texto
         #-------
         if text == "":
-            pyautogui.moveTo(x=-1659, y=383) # deixar turma em aberto >>>>>(CORDENADAS)<<<<< 20º
+            pyautogui.moveTo(x=-1659, y=383) # deixar turma em aberto >>>>>(CORDENADAS)<<<<< 21º
             pyautogui.click() # clicar
-            #============================ BUTÃO PROXIMO ====================================#
+            #============================ BUTÃO PROXIMO ====================================# 
             time.sleep(2)
-            pyautogui.moveTo(x=-672, y=870) # mover para o butão gravar >>>>>(CORDENADAS)<<<<< 21º
+            pyautogui.moveTo(x=-672, y=870) # mover para o butão gravar >>>>>(CORDENADAS)<<<<< 22º
             pyautogui.click() # clicar090.531.867-60
             time.sleep(3)
         else:
-            pyautogui.moveTo(x=-1669, y=546) # escolher turma AVA >>>>>(CORDENADAS)<<<<< 22º
+            pyautogui.moveTo(x=-1669, y=546) # escolher turma AVA >>>>>(CORDENADAS)<<<<< 23º
             pyautogui.click() # clicar
             #=========================== BUTÃO GRAVAR =====================================#
             time.sleep(3)
-            pyautogui.moveTo(x=-589, y=868) # mover para o butão gravar >>>>>(CORDENADAS)<<<<< 23º
+            pyautogui.moveTo(x=-589, y=868) # mover para o butão gravar >>>>>(CORDENADAS)<<<<< 24º
             #pyautogui.click() # clicar
             time.sleep(10) ##### ------ colocar para "5"
 #================================================= EXCEL ====================================================#
         pyautogui.hotkey('alt', 'tab') # Chrome
         time.sleep(2)
-        pyautogui.moveTo(x=-488, y=85) # clique na página >>>>>(CORDENADAS)<<<<< 24º
+        pyautogui.moveTo(x=-488, y=85) # clique na página >>>>>(CORDENADAS)<<<<< 25º
         pyautogui.click() # clicar
         time.sleep(2)
         Funções.marcar_ok() # marca OK
