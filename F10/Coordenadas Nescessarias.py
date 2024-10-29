@@ -25,3 +25,19 @@
 # 23º - escolher turma AVA = (x=-1669, y=546)
 # 24º - mover para o butão gravar = (x=-589, y=868)
 # 25º - clique na página = (x=-488, y=85)
+
+#======================================================== -12
+
+# 1º mover para primeira linha de "CPF" da panilha = (x=-1109, y=556)
+# 2º mover para a parte de prenhencher "CPF" = (x=-1685, y=454)
+# 3º mover para butão OK = (x=-797, y=659)
+# 4º move para o CEP = (x=-1590, y=631)
+# 5º mover para o butão proximo = (x=-830, y=865)
+# 6º butão escolher tipo de contrato = (x=-1438, y=413)
+# 7º mover para o 2º butão proximo = (x=-672, y=870)
+# 8º opção de turma (para verificar a captura de tela) = (x=-1635, y=546)
+# 9º deixar turma em aberto = (x=-1659, y=383)
+# 10º mover para o butão gravar = (x=-672, y=870)
+# 11º escolher turma AVA = (x=-1669, y=546)
+# 12º mover para o butão gravar = (x=-589, y=868)
+# 13º clique na página = (x=-488, y=85)
