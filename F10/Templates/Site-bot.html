@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt - br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(187, 27, 27);
+        }
+        div[id="quantidades usuário"] {
+            text-align: center;
+            h3[id="quantidades usuário"] {
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            input[id="quantidades usuário"] {
+                width: 20%;
+            }
+        }
+        div[id="data de cadastro"] {
+            text-align: center;
+            h3[id="data de cadastro"] {
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            input[id="data de cadastro"] {
+                width: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form action="/RespostaUsuário" method="post">
+        <div id="quantidades usuário">
+            <h3 id="quantidades usuário">QUANTIDADE DE USUÁRIOS</h3>
+            <input type="number" id="quantidades usuário" name="quantidades_usuário" required> 
+        </div>
+    </form>
+    <form action="/RespostaUsuário2" method="post">
+        <div id="data de cadastro">
+            <h3 id="data de cadastro">DATA DE CADASTRO</h3>
+            <input type="text" id="data de cadastro" name="data_de_cadastro" required>
+        </div>
+    </form>
+</body>
+</html>
+
+0 - resposta do usuário
+
+CURSOS
+1 - mostra as opções de cursos

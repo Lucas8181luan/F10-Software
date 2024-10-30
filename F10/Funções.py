@@ -153,4 +153,3 @@ def BUTÃO_GRAVAR():
     for i in range(8):
         pyautogui.press('tab')
     #pyautogui.press("Enter")
-

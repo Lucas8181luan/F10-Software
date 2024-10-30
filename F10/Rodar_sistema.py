@@ -12,7 +12,7 @@ import ctypes
 print("\033[34m=" * 40)
 USUÁRIO = input('\033[34mDigite \033[97m"OK\033[0m" \033[34mpara iniciar programar = \033[0m'.center(40)).upper().strip() # resposta do usuário
 print("\033[34m=\033[0m" * 40)
-quantidades_de_repetições = int(input("\033[34mQuantas vezes e pra rodar o programa = \033[0m"))
+quantidades_de_repetições = int(input("\033[34mQuantas vezes e pra rodar o programa = \033[0m")) # quantidades de vezes para rodar o programa
 print("\033[34m=\033[0m" * 40)
 data_do_usuário = str(input("DIGITE A DATA DE CADASTRO DA MATRÍCULA (USANDO / / ) = ")) # pede para o usuário escolher a data de cadastro
 CURSOS = ["EAD - Agente de Defesa Ambiental", "EAD - Assistente de Logistica", "EAD - Estoquista"] # CURSOS
