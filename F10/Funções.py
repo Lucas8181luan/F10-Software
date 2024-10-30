@@ -8,6 +8,21 @@ def achar_position():
     print(f"POSITION: \033[32m{posição}\033[0m")
 
 
+#=============================== PRENCHER CPF - F10 ===================================#
+def prencher_cpf():
+    pyautogui.press("down")
+    time.sleep(0.20)
+    pyautogui.press("Enter")
+
+
+#================================ ACHAR CEP - F10 =====================================#
+def achar_cep():
+    pyautogui.press("Enter")
+    time.sleep(0.10)
+    for i in range(6):
+        pyautogui.press("tab")
+
+
 #================================== MARCAR "OK" =======================================#
 def marcar_ok():
     for i in range(2): 
@@ -81,13 +96,27 @@ def Coordenador():
     return pyautogui.write(Coordenador)
 
 
-#================================ ESCOLHER POLO ===================================#
+#=================================== ESCOLHER POLO =======================================#
 def polo():
     for i in range(9):
         pyautogui.press("tab")
-    Coordenador = "RIO+CURSOS"
-    pyautogui.write(Coordenador)
-    pyautogui.press("Enter")
+    Polo = "RIO+CURSOS"
+    pyautogui.write(Polo)
+    time.sleep(0.30)
+    pyautogui.press("tab")
+    time.sleep(0.30)
+    pyautogui.press("down")
+    pyautogui.press("down")
+    pyautogui.press("down")
+    time.sleep(0.30)
+    pyautogui.press("space")
+
+
+#================================= TURMA EM ABERTO =======================================#
+def turma_em_aberto():
+    for i in range(8):
+        pyautogui.hotkey('shift', 'tab')
+    pyautogui.press("space")
 
 
 #================================== OPÇÕES DE CURSOS =====================================#
@@ -105,3 +134,23 @@ def Curso(valor):
     if curso_do_usuário == 3:
         respt_usuário = "\033[37mEAD - Estoquista"
         return pyautogui.write(respt_usuário) 
+
+
+#================================== BUTÃO PROXIMO - 1 =====================================#
+def BUTÃO_PROXIMO_1():
+    for i in range(10):
+        pyautogui.press('tab')
+
+
+#================================== BUTÃO PROXIMO - 2 =====================================#
+def BUTÃO_PROXIMO_2():
+    for i in range(6):
+        pyautogui.press('tab')
+
+
+#==================================== BUTÃO GRAVAR ========================================#
+def BUTÃO_GRAVAR():
+    for i in range(8):
+        pyautogui.press('tab')
+    #pyautogui.press("Enter")
+
