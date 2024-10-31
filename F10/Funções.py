@@ -124,7 +124,7 @@ def Curso(valor):
     curso_do_usuário = valor
     #========= Agente de Defesa Ambiental =========#
     if curso_do_usuário == 1:
-        respt_usuário = "EAD - Agente de Defesa Ambiental"
+        respt_usuário = "\033[37mEAD - Agente de Defesa Ambiental"
         return pyautogui.write(respt_usuário)
     #======== EAD - Assistente de Logistica =======#
     if curso_do_usuário == 2:
