@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatação de Telefone</title>
+    <style>
+        input {
+            font-size: 1.2em;
+            padding: 0.5em;
+            width: 250px;
+        }
+        #resultado {
+            margin-top: 10px;
+            color: red;
+        }
+        #mensagem {
+            margin-top: 10px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formatação de Telefone</h1>
+    <input type="text" id="telefone" placeholder="(XX) XXXXX-XXXX" maxlength="15" oninput="formatarTelefone(this)">
+    <button onclick="validarNumero()">Verificar Número</button>
+    <div id="resultado"></div>
+    <div id="mensagem"></div>
+
+    <script>
+        function formatarTelefone(input) {
+            // Remove todos os caracteres não numéricos
+            let value = input.value.replace(/\D/g, '');
+
+            // Formata o número conforme o tamanho
+            if (value.length <= 10) {
+                value = value.replace(/^(\d{2})(\d{4})(\d)/, '($1) $2-$3');
+            } else {
+                value = value.replace(/^(\d{2})(\d{5})(\d)/, '($1) $2-$3');
+            }
+            input.value = value;
+
+            // Limpa a mensagem quando o usuário digita
+            document.getElementById("resultado").innerText = "";
+        }
+
+        function validarNumero() {
+            const telefone = document.getElementById("telefone").value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            const resultado = document.getElementById("resultado");
+            const mensagem = document.getElementById("mensagem");
+
+            // Verifica se o telefone tem 11 dígitos
+            if (telefone.length !== 11) {
+                resultado.innerText = "Telefone inválido! O número deve ter 11 dígitos.";
+                mensagem.innerText = ""; // Limpa a mensagem de sucesso
+            } else {
+                resultado.innerText = ""; // Limpa a mensagem de erro
+                mensagem.innerText = "Telefone válido!"; // Mensagem de sucesso
+            }
+        }
+    </script>
+</body>
+</html>
