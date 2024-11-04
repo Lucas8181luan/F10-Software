@@ -8,7 +8,6 @@ import ctypes
 import pytesseract
 import PIL
 
-
 #================================ ACHAR POSITION ======================================#
 def achar_position():
     time.sleep(8)
