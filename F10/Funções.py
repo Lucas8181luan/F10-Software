@@ -122,18 +122,7 @@ def turma_em_aberto():
 #================================== OPÇÕES DE CURSOS =====================================#
 def Curso(valor):
     curso_do_usuário = valor
-    #========= Agente de Defesa Ambiental =========#
-    if curso_do_usuário == 1:
-        respt_usuário = "\033[37mEAD - Agente de Defesa Ambiental"
-        return pyautogui.write(respt_usuário)
-    #======== EAD - Assistente de Logistica =======#
-    if curso_do_usuário == 2:
-        respt_usuário = "\033[37mEAD - Assistente de Logistica"
-        return pyautogui.write(respt_usuário)   
-    #============ EAD - Estoquista ================#
-    if curso_do_usuário == 3:
-        respt_usuário = "\033[37mEAD - Estoquista"
-        return pyautogui.write(respt_usuário) 
+    return pyautogui.write(curso_do_usuário)
 
 
 #================================== BUTÃO PROXIMO - 1 =====================================#
@@ -153,3 +142,13 @@ def BUTÃO_GRAVAR():
     for i in range(8):
         pyautogui.press('tab')
     #pyautogui.press("Enter")
+
+#================================= FINALIZAR PROGRAMA =====================================#
+def FINALIZAR_PROGRAMA():
+    #=====================================#
+    #======== PROGRAMA FINALIZADO ========#
+    print("\033[31m=" * 40)
+    print("PROGRAMA ENCERRADO!".center(40))
+    print("=" * 40)
+    #=====================================#
+    #=====================================#
