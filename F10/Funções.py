@@ -1,5 +1,13 @@
-import pyautogui
+import tkinter as tk
+from tkinter import ttk
+import pyautogui 
 import time
+import pytesseract
+import Funções
+import ctypes
+import pytesseract
+import PIL
+
 
 #================================ ACHAR POSITION ======================================#
 def achar_position():
@@ -143,6 +151,7 @@ def BUTÃO_GRAVAR():
         pyautogui.press('tab')
     #pyautogui.press("Enter")
 
+
 #================================= FINALIZAR PROGRAMA =====================================#
 def FINALIZAR_PROGRAMA():
     #=====================================#
@@ -152,3 +161,41 @@ def FINALIZAR_PROGRAMA():
     print("=" * 40)
     #=====================================#
     #=====================================#
+
+
+#============================== VERIFICAR MENOR DE IDADE ==================================#
+def Verificar_menor_de_idade():
+    time.sleep(2)
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Ajuste conforme necessário
+    print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
+    texto = pytesseract.image_to_string(print_da_tela) # Converte a imagem em texto
+    Achar_essa_mensagem = "Adicionar Titular (Responsavel pelo Contrato)" # Achar menssagem
+    if Achar_essa_mensagem in texto:
+        return True
+    else:
+        return False
+
+
+#============================== FECHAR PÁGINA DE CADASTRO" ================================#
+def Fechar_página_de_cadastro():
+    pyautogui.hotkey('Ctrl', 'tab') # Fechar página de cadastro
+    time.sleep(0.20)
+    pyautogui.hotkey('alt', 'o', 'c') # Voltar para a página de cadastro
+
+
+#============================ VOLTAR E MARCA "Menor de idade" =============================#
+def Marcar_menor_de_idade():
+    time.sleep(3)
+    pyautogui.hotkey('alt', 'tab') # Chrome
+    time.sleep(0.20)
+    for i in range(7): 
+        pyautogui.press("left") 
+    time.sleep(0.20)
+    pyautogui.write("Menor de idade ") # escrever menor de idade
+    time.sleep(0.20)
+    for i in range(2): 
+        pyautogui.press("right")
+        time.sleep(0.20)
+    pyautogui.press("down")
+    time.sleep(0.20)
+    pyautogui.hotkey('alt', 'tab') # F10

@@ -5,6 +5,8 @@ import time
 import pytesseract
 import Funções
 import ctypes
+import pytesseract
+import PIL
     
 def F10_BOT():
     #====== QUANTIDADES DE USUÁRIOS ======#
@@ -95,9 +97,7 @@ app.mainloop() # Abrir o aplicativo
 time.sleep(10)
 for vezes in range(numero): 
     #=========================== BUTÃO ADICIONAR ============================#
-    pyautogui.hotkey('Alt', 'o') 
-    time.sleep(1)
-    pyautogui.press('i') 
+    pyautogui.hotkey('Alt', 'o', 'i')  
     time.sleep(2)
     #============================= ABRIR EXCEL ====================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
@@ -129,33 +129,42 @@ for vezes in range(numero):
     #============================ BUTÃO PROXIMO - 1 ====================================#
     Funções.BUTÃO_PROXIMO_1()
     time.sleep(2)
-    #=============================== PARTE - 2 =====================================#
+    #======================== VERIFICAR MENOR DE IDADE =================================#
+    Resultado = Funções.Verificar_menor_de_idade() #---------------------------------------------->>>>>>>>>>>>> VERIFICA SE E MENOR DE IDADE
+    time.sleep(1)
+    if Resultado == True:
+        Funções.Fechar_página_de_cadastro() #-------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
+        time.sleep(1)
+        Funções.Marcar_menor_de_idade() #--------------------------------------------------------------->>>>>>>>>>>>> MARCAR MENOR DE IDADES
+        time.sleep(2)
+        continue
+    #================================ PARTE - 2 ========================================#
     #================ TIPO DE CONTRATO ==================#
     pyautogui.press("tab")
-    Funções.Tipo_de_Contarto() #--------------------------------------------------------------------------->>>>>>>>>>>>> TIPO DE CONTRATO
+    Funções.Tipo_de_Contarto() #------------------------------------------------------------------------------>>>>>>>>>>>>> TIPO DE CONTRATO
     time.sleep(1) 
     pyautogui.press("tab") # TECLA "tab"
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
-    Funções.Matrícula(data) #-------------------------------------------------------------------------->>>>>>>>>>>>> MATRÍCULA
+    Funções.Matrícula(data) #---------------------------------------------------------------------------------------->>>>>>>>>>>>> MATRÍCULA
     time.sleep(1)
     pyautogui.press("tab") # TECLA "tab"
     pyautogui.press("tab") # TECLA "tab"
     #================ OPÇÃO - EVENTO =====================#
-    Funções.Evento() #----------------------------------------------------------------------------------------------->>>>>>>>>>>>> EVENTO
+    Funções.Evento() #-------------------------------------------------------------------------------------------------->>>>>>>>>>>>> EVENTO
     time.sleep(1)
     pyautogui.press("tab") # TECLA "tab"
     #================= OPÇÃO - CURSO =====================#
-    Funções.Curso(curso) #--------------------------------------------------------------------------------->>>>>>>>>>>>> CURSO
+    Funções.Curso(curso) #----------------------------------------------------------------------------------------------->>>>>>>>>>>>> CURSO
     time.sleep(2)
     pyautogui.press("tab") # TECLA "tab"
     #=============== OPÇÃO - COORDENADOR =================#
-    Funções.Coordenador() #-------------------------------------------------------------------------------------->>>>>>>>>>>>> COORDENADOR
+    Funções.Coordenador() #---------------------------------------------------------------------------------------->>>>>>>>>>>>> COORDENADOR
     time.sleep(1)
     #============================ BUTÃO PROXIMO - 2 ====================================#
     Funções.BUTÃO_PROXIMO_2()
     time.sleep(2)
     #=============================== PARTE - 3 =====================================#
-    Funções.polo() #--------------------------------------------------------------------------------------------------->>>>>>>>>>>>> POLO
+    Funções.polo() #----------------------------------------------------------------------------------------------------->>>>>>>>>>>>> POLO
     time.sleep(2)                               
     #------
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe' # especifique o caminho do Tesseract, se necessário
@@ -163,14 +172,14 @@ for vezes in range(numero):
     text = pytesseract.image_to_string(captura_de_tela) # converte a imagem em texto
     #-------
     if text == "":
-        Funções.turma_em_aberto() #-------------------------------------------------------------------------->>>>>>>>>>>>> TURMA EM ABERTO
+        Funções.turma_em_aberto() #--------------------------------------------------------------------------->>>>>>>>>>>>> TURMA EM ABERTO
         time.sleep(2)
         #============================ BUTÃO GRAVAR ====================================# 
-        Funções.BUTÃO_GRAVAR() #-------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
+        Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
         time.sleep(2)
     else:
         #=========================== BUTÃO GRAVAR =====================================#
-        Funções.BUTÃO_GRAVAR() #-------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
+        Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
         time.sleep(2)
     #============================================== EXCEL ====================================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
