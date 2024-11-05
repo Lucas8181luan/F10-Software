@@ -194,3 +194,5 @@ for vezes in range(numero):
     time.sleep(5)
 
 F10_BOT()
+
+# CRIAR UMA FUNÇÃO IGUAL A DO "Menor de idade" NA PARTE DO POLO
