@@ -194,3 +194,7 @@ F10_BOT()
 
 # CTRL + SHIFT + PG UP 2x -> ler o dashboard
 # do lado da planilha de cadastro mostar posso ver por la tambem
+
+# Fazer um comando para ja abrir o APP em tela cheia
+
+# Achar outra referencia alem da 04:00:00
