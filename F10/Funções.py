@@ -5,7 +5,6 @@ import time
 import pytesseract
 import Funções
 import ctypes
-import pytesseract
 import PIL
 
 #================================ ACHAR POSITION ======================================#
@@ -148,6 +147,7 @@ def BUTÃO_PROXIMO_2():
 def BUTÃO_GRAVAR():
     for i in range(8):
         pyautogui.press('tab')
+        time.sleep(5) #=============================== EXCLUIR
     #pyautogui.press("Enter")
 
 
@@ -165,11 +165,24 @@ def FINALIZAR_PROGRAMA():
 #============================== VERIFICAR MENOR DE IDADE ==================================#
 def Verificar_menor_de_idade():
     time.sleep(2)
-    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Ajuste conforme necessário
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
     texto = pytesseract.image_to_string(print_da_tela) # Converte a imagem em texto
-    Achar_essa_mensagem = "Adicionar Titular (Responsavel pelo Contrato)" # Achar menssagem
-    if Achar_essa_mensagem in texto:
+    Achar_essa_menssagem = "Adicionar Titular (Responsavel pelo Contrato)" # Achar menssagem
+    if Achar_essa_menssagem in texto:
+        return True
+    else:
+        return False
+
+
+#============================ VERIFICAR COORDENADOR NO POLO ===============================#
+def Verificar_coordenador_polo():
+    time.sleep(8)
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
+    texto = pytesseract.image_to_string(print_da_tela)
+    Achar_essa_menssagem = "04:00:00"
+    if Achar_essa_menssagem in texto:
         return True
     else:
         return False

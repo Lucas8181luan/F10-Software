@@ -5,7 +5,6 @@ import time
 import pytesseract
 import Funções
 import ctypes
-import pytesseract
 import PIL
     
 def F10_BOT():
@@ -69,7 +68,7 @@ Data_da_matrícula.pack(pady=10) # posição
 #===================================== INPUT - CURSOS ============================================#
 texto_CURSOS = tk.Label(app, text="ESCOLHA O CURSO", bg="red", fg="white", font=("Arial", 14, "bold")) # text
 texto_CURSOS.pack(pady=10) # posição text
-CURSOS = ttk.Combobox(app, values=["EAD - Agente de Defesa Ambiental", "EAD - Assistente de Logistica", "EAD - Estoquista"], width=41)
+CURSOS = ttk.Combobox(app, values=["EAD - Agente de Defesa Ambiental", "EAD - Assistente de Logistica", "EAD - Estoquista", "AUXILIAR ADMINISTRATIVO", "PORTEIRO", "OPERADOR DE CAIXA", "RECEPCIONISTA", "ATENDENTE DE FARMÁCIA", "INFORMÁTICA"], width=41)
 CURSOS.pack(pady=10) # posição
 CURSOS.set("Selecione uma opção")
 #=================================================================================================#
@@ -106,7 +105,7 @@ for vezes in range(numero):
     time.sleep(0.10)
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(5)
-    Funções.prencher_cpf() #------------------------------------------------------------------------------->>>>>>>>>>>>> PRENCHER CPF - F10
+    Funções.prencher_cpf() #------------------------------------------------------------------------------>>>>>>>>>>>>> PRENCHER CPF - F10
     time.sleep(2)
     pyautogui.hotkey('ctrl', 'v') # colar o "CPF" copiado
     time.sleep(1)
@@ -120,7 +119,7 @@ for vezes in range(numero):
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(2)
-    Funções.achar_cep() #-------------------------------------------------------------------------------------->>>>>>>>>>>>> ACHAR CEP - F10
+    Funções.achar_cep() #------------------------------------------------------------------------------------>>>>>>>>>>>>> ACHAR CEP - F10
     time.sleep(0.10)
     Funções.apagar_CEP()   
     time.sleep(1)
@@ -130,35 +129,35 @@ for vezes in range(numero):
     Funções.BUTÃO_PROXIMO_1()
     time.sleep(2)
     #======================== VERIFICAR MENOR DE IDADE =================================#
-    Resultado = Funções.Verificar_menor_de_idade() #---------------------------------------------->>>>>>>>>>>>> VERIFICA SE E MENOR DE IDADE
+    Resultado = Funções.Verificar_menor_de_idade() #--------------------------------------------->>>>>>>>>>>>> VERIFICA SE E MENOR DE IDADE
     time.sleep(1)
     if Resultado == True:
-        Funções.Fechar_página_de_cadastro() #-------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
+        Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
         time.sleep(1)
-        Funções.Marcar_menor_de_idade() #--------------------------------------------------------------->>>>>>>>>>>>> MARCAR MENOR DE IDADES
+        Funções.Marcar_menor_de_idade() #-------------------------------------------------------------->>>>>>>>>>>>> MARCAR MENOR DE IDADES
         time.sleep(2)
         continue
     #================================ PARTE - 2 ========================================#
     #================ TIPO DE CONTRATO ==================#
     pyautogui.press("tab")
-    Funções.Tipo_de_Contarto() #------------------------------------------------------------------------------>>>>>>>>>>>>> TIPO DE CONTRATO
+    Funções.Tipo_de_Contarto() #----------------------------------------------------------------------------->>>>>>>>>>>>> TIPO DE CONTRATO
     time.sleep(1) 
     pyautogui.press("tab") # TECLA "tab"
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
-    Funções.Matrícula(data) #---------------------------------------------------------------------------------------->>>>>>>>>>>>> MATRÍCULA
+    Funções.Matrícula(data) #--------------------------------------------------------------------------------------->>>>>>>>>>>>> MATRÍCULA
     time.sleep(1)
     pyautogui.press("tab") # TECLA "tab"
     pyautogui.press("tab") # TECLA "tab"
     #================ OPÇÃO - EVENTO =====================#
-    Funções.Evento() #-------------------------------------------------------------------------------------------------->>>>>>>>>>>>> EVENTO
+    Funções.Evento() #------------------------------------------------------------------------------------------------->>>>>>>>>>>>> EVENTO
     time.sleep(1)
     pyautogui.press("tab") # TECLA "tab"
     #================= OPÇÃO - CURSO =====================#
-    Funções.Curso(curso) #----------------------------------------------------------------------------------------------->>>>>>>>>>>>> CURSO
+    Funções.Curso(curso) #---------------------------------------------------------------------------------------------->>>>>>>>>>>>> CURSO
     time.sleep(2)
     pyautogui.press("tab") # TECLA "tab"
     #=============== OPÇÃO - COORDENADOR =================#
-    Funções.Coordenador() #---------------------------------------------------------------------------------------->>>>>>>>>>>>> COORDENADOR
+    Funções.Coordenador() #--------------------------------------------------------------------------------------->>>>>>>>>>>>> COORDENADOR
     time.sleep(1)
     #============================ BUTÃO PROXIMO - 2 ====================================#
     Funções.BUTÃO_PROXIMO_2()
@@ -167,11 +166,9 @@ for vezes in range(numero):
     Funções.polo() #----------------------------------------------------------------------------------------------------->>>>>>>>>>>>> POLO
     time.sleep(2)                               
     #------
-    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe' # especifique o caminho do Tesseract, se necessário
-    captura_de_tela = pyautogui.screenshot() # captura o espaço
-    text = pytesseract.image_to_string(captura_de_tela) # converte a imagem em texto
+    Verificar = Funções.Verificar_coordenador_polo() #----------------------------------------------------------------->>>>>>>>>>>>> COORDENADOR - POLO
     #-------
-    if text == "":
+    if Verificar == False:
         Funções.turma_em_aberto() #--------------------------------------------------------------------------->>>>>>>>>>>>> TURMA EM ABERTO
         time.sleep(2)
         #============================ BUTÃO GRAVAR ====================================# 
@@ -180,10 +177,10 @@ for vezes in range(numero):
     else:
         #=========================== BUTÃO GRAVAR =====================================#
         Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
-        time.sleep(2)
+        time.sleep(2) 
     #============================================== EXCEL ====================================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
-    time.sleep(8) #--------------------------------------------------- COLOCAR PARA 3
+    time.sleep(3) 
     Funções.marcar_ok() # marca OK
     time.sleep(2)
     Funções.voltar_para_cpf()
@@ -195,4 +192,5 @@ for vezes in range(numero):
 
 F10_BOT()
 
-# CRIAR UMA FUNÇÃO IGUAL A DO "Menor de idade" NA PARTE DO POLO
+# CTRL + SHIFT + PG UP 2x -> ler o dashboard
+# do lado da planilha de cadastro mostar posso ver por la tambem
