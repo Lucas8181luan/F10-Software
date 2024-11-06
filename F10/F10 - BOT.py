@@ -166,7 +166,7 @@ for vezes in range(numero):
     Funções.polo() #----------------------------------------------------------------------------------------------------->>>>>>>>>>>>> POLO
     time.sleep(2)                               
     #------
-    Verificar = Funções.Verificar_coordenador_polo() #----------------------------------------------------------------->>>>>>>>>>>>> COORDENADOR - POLO
+    Verificar = Funções.Verificar_coordenador_polo() #----------------------------------------------------->>>>>>>>>>>>> COORDENADOR - POLO
     #-------
     if Verificar == False:
         Funções.turma_em_aberto() #--------------------------------------------------------------------------->>>>>>>>>>>>> TURMA EM ABERTO
