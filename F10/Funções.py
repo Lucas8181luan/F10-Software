@@ -6,6 +6,8 @@ import pytesseract
 import Funções
 import ctypes
 import PIL
+import sys
+import os
 
 #================================ ACHAR POSITION ======================================#
 def achar_position():
@@ -147,7 +149,7 @@ def BUTÃO_PROXIMO_2():
 def BUTÃO_GRAVAR():
     for i in range(8):
         pyautogui.press('tab')
-        time.sleep(5) #=============================== EXCLUIR
+        time.sleep(3) #=============================== EXCLUIR
     #pyautogui.press("Enter")
 
 
@@ -181,7 +183,7 @@ def Verificar_coordenador_polo():
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
     texto = pytesseract.image_to_string(print_da_tela)
-    Achar_essa_menssagem = "04:00:00"
+    Achar_essa_menssagem = "AVA"
     if Achar_essa_menssagem in texto:
         return True
     else:
@@ -211,3 +213,17 @@ def Marcar_menor_de_idade():
     pyautogui.press("down")
     time.sleep(0.20)
     pyautogui.hotkey('alt', 'tab') # F10
+
+
+#================================= CONTA INSCRIÇÕES =======================================#
+def Contar_inscrições(Contador, Valor_atual, Limite):
+    Mais_uma_inscrição = Contador
+    Ja_inscritos = Valor_atual
+    Limite_de_inscrições = Limite
+
+    Ja_inscritos += Mais_uma_inscrição
+
+    if Ja_inscritos == Limite_de_inscrições:
+        return True
+    else:
+        pass

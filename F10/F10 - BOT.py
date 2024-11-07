@@ -6,12 +6,17 @@ import pytesseract
 import Funções
 import ctypes
 import PIL
-    
+import sys
+import subprocess
+
+#########################################################################################################################
+###>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PROGRAMA INICIAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<###
+#########################################################################################################################
 def F10_BOT():
-    #====== QUANTIDADES DE USUÁRIOS ======#
-    RESP_Quantidades_de_usuário = Quantidades_de_usuário.get()
+    #========= NOVAS MATRÍCULAS ==========#
+    RESP_Novas_matrículas = Novas_matrículas.get()
     global numero
-    numero = int(RESP_Quantidades_de_usuário)
+    numero = int(RESP_Novas_matrículas)
     #=====================================#
 
     #========== DATA DA MATRÍCULA ========#
@@ -25,41 +30,54 @@ def F10_BOT():
     global curso
     curso = str(RESP_CURSOS)
     #=====================================#
+
+    #===== QUANTIDADES DE INSCRIÇÕES =====#
+    RESP_Quantidade_atual_inscrições = Quantidade_atual_inscrições.get()
+    global Quantidade_inscrições
+    Quantidade_inscrições = int(RESP_Quantidade_atual_inscrições)
+    #=====================================#
+
+    #======= LIMITE DE INSCRIÇÕES ========#
+    RESP_Limite_de_inscrições = Limite_de_inscrições.get()
+    global Limite_inscrições
+    Limite_inscrições = int(RESP_Limite_de_inscrições)
+    #=====================================#
     app.destroy()
 #========== CRIAR APP ==========#
 app = tk.Tk()
 app.title("IFP") # Titulo
+app.attributes("-fullscreen", True) # abri a janela em tela cheia
 #===============================#
 
 #========================================== TITULO ===============================================#
-TITULO = tk.Label(app, text="F10 - BOT", bg="blue" ,fg="White", font=("Arial", 80, "bold")) # text
-TITULO.pack(pady=132) # posição text
+TITULO = tk.Label(app, text="F10 - BOT", bg="blue" ,fg="White", font=("Arial", 80, "bold")) # texto
+TITULO.pack(pady=90) # posição text
 #=================================================================================================#
 
 #================================= BORDA - WHITE =================================#
-FUNDO_BLACK = tk.Label(app, text=".", width=55, height=25, bg="White") # tamamnho do fundo
+FUNDO_BLACK = tk.Label(app, text=".", width=76, height=34, bg="White") # tamamnho do fundo
 FUNDO_BLACK.place(relx=0.5, rely=0.6, anchor="center") # centralizar o fundo
 #=================================================================================#
 
 #=================================== FUNDO - RED =================================#
-FUNDO_RED = tk.Label(app, text="", width=50, height=23, bg="red") # tamamnho do fundo
+FUNDO_RED = tk.Label(app, text="", width=70, height=32, bg="red") # tamamnho do fundo
 FUNDO_RED.place(relx=0.5, rely=0.6, anchor="center") # centralizar o fundo
 #=================================================================================#
 
 #=================================================================================================#
-#============================= INPUT - QUANTIDADES DE USUÁRIO ====================================#
-texto_Quantidades_de_usuário = tk.Label(app, text="QUANTIDADES DE USUÁRIOS", bg="red", fg="white", font=("Arial", 14, "bold")) # text
-texto_Quantidades_de_usuário.pack(pady=10) # posição text
-Quantidades_de_usuário = tk.Entry(app, width=45)
-Quantidades_de_usuário.pack(pady=10) # posição 
+#============================== INPUT - NOVAS MATRÍCULAS =========================================#
+texto_Novas_matrículas = tk.Label(app, text="NOVAS MATRÍCULAS", bg="red", fg="white", font=("Arial", 14, "bold")) # texto
+texto_Novas_matrículas.pack(pady=10) # posição texto
+Novas_matrículas = tk.Entry(app, width=55)
+Novas_matrículas.pack(pady=10) # posição 
 #=================================================================================================#
 #=================================================================================================#
 
 #=================================================================================================#
 #=============================== INPUT - DATA DA MATRÍCULA =======================================#
-texto_Data_da_matrícula = tk.Label(app, text="DATA DA MATRÍCULA", bg="red", fg="white", font=("Arial", 14, "bold")) # text
-texto_Data_da_matrícula.pack(pady=10) # posição text
-Data_da_matrícula = tk.Entry(app, width=45)
+texto_Data_da_matrícula = tk.Label(app, text="DATA DA MATRÍCULA", bg="red", fg="white", font=("Arial", 14, "bold")) # texto
+texto_Data_da_matrícula.pack(pady=10) # posição texto
+Data_da_matrícula = tk.Entry(app, width=55)
 Data_da_matrícula.pack(pady=10) # posição
 #=================================================================================================#
 #=================================================================================================#
@@ -67,16 +85,39 @@ Data_da_matrícula.pack(pady=10) # posição
 #=================================================================================================#
 #===================================== INPUT - CURSOS ============================================#
 texto_CURSOS = tk.Label(app, text="ESCOLHA O CURSO", bg="red", fg="white", font=("Arial", 14, "bold")) # text
-texto_CURSOS.pack(pady=10) # posição text
-CURSOS = ttk.Combobox(app, values=["EAD - Agente de Defesa Ambiental", "EAD - Assistente de Logistica", "EAD - Estoquista", "AUXILIAR ADMINISTRATIVO", "PORTEIRO", "OPERADOR DE CAIXA", "RECEPCIONISTA", "ATENDENTE DE FARMÁCIA", "INFORMÁTICA"], width=41)
+texto_CURSOS.pack(pady=10) # posição texto
+CURSOS = ttk.Combobox(app, values=["EAD - Agente de Defesa Ambiental", "EAD - Assistente de Logistica", "EAD - Estoquista", "AUXILIAR ADMINISTRATIVO", "PORTEIRO", "OPERADOR DE CAIXA", "RECEPCIONISTA", "ATENDENTE DE FARMÁCIA", "INFORMÁTICA"], width=52)
 CURSOS.pack(pady=10) # posição
 CURSOS.set("Selecione uma opção")
 #=================================================================================================#
 #=================================================================================================#
 
+#=================================================================================================#
+#============================ INPUT - QUANTIDADE ATUAL DE INCRIÇÕES ==============================#
+texto_Quantidade_atual_inscrições = tk.Label(app, text="QUANTIDADE ATUAL DE INSCRIÇÕES", bg="red", fg="white", font=("Arial", 14, "bold")) # texto
+texto_Quantidade_atual_inscrições.pack(pady=10) # posição do texto
+Quantidade_atual_inscrições = tk.Entry(app, width=55)
+Quantidade_atual_inscrições.pack(pady=10) # posição
+#=================================================================================================#
+#=================================================================================================#
+
+#=================================================================================================#
+#================================ INPUT - LIMITE DE INSCRIÇÕES ===================================#
+texto_Limite_de_inscrições = tk.Label(app, text="LIMITE DE INSCRIÇÕES", bg="red", fg="white", font=("Arial", 14, "bold")) # texto
+texto_Limite_de_inscrições.pack(pady=10) # posição do texto
+Limite_de_inscrições = tk.Entry(app, width=55)
+Limite_de_inscrições.pack(pady=10) # posição
+#=================================================================================================#
+#=================================================================================================#
+
 #=========================== BUTÃO PARA INICIRA A AÇÃO ===========================#
-button_iniciar_programa = tk.Button(app, text="INICIAR PROGRAMA", command=F10_BOT, width=20, height=3, font=("Arial", 10, "bold"), bg="red", fg="white")
-button_iniciar_programa.pack(pady=33) # posição
+button_iniciar_programa = tk.Button(app, text="INICIAR PROGRAMA", command=F10_BOT, width=20, height=2, font=("Arial", 10, "bold"), bg="red", fg="white")
+button_iniciar_programa.pack(pady=10) # posição
+#=================================================================================#
+
+#============================== BUTÃO PARA FECHAR ================================#
+button_fechar_programa = tk.Button(app, text="FECHAR PROGRAMA", command=app.destroy, width=20, height=2, font=("Arial", 10, "bold"), bg="red", fg="white")
+button_fechar_programa.pack(pady=5) # posição
 #=================================================================================#
 
 #====================================================================================================================================#
@@ -89,10 +130,10 @@ app.config(bg="blue") # cor de fundo
 app.mainloop() # Abrir o aplicativo
 #======================================#
 
-
 #########################################################################################################################
 ###>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SISTEMA <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<###
 #########################################################################################################################
+Novo_cadastrado = 0 # para função (LIMITE DE INSCRIÇÕES)
 time.sleep(10)
 for vezes in range(numero): 
     #=========================== BUTÃO ADICIONAR ============================#
@@ -174,10 +215,12 @@ for vezes in range(numero):
         #============================ BUTÃO GRAVAR ====================================# 
         Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
         time.sleep(2)
+        Novo_cadastrado += 1
     else:
         #=========================== BUTÃO GRAVAR =====================================#
         Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
-        time.sleep(2) 
+        time.sleep(2)
+        Novo_cadastrado += 1
     #============================================== EXCEL ====================================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(3) 
@@ -189,12 +232,21 @@ for vezes in range(numero):
     time.sleep(3)
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(5)
+    #======================================== VERIFICAR LIMITE ===============================================#
+    Contador = Funções.Contar_inscrições(Novo_cadastrado, Quantidade_inscrições, Limite_inscrições) #----->>>>>>>>>>>>> LIMITE DE INSCRIÇÕES
+    if Contador == True:
+        break
 
-F10_BOT()
+#########################################################################################################################
+###>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> REINICIAR PROGRAMA <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<###
+#########################################################################################################################
+def Reiniciar_programa():
+    python = sys.executable
+    script = sys.argv[0]
+    subprocess.call([python, script] + sys.argv[1:])
 
-# CTRL + SHIFT + PG UP 2x -> ler o dashboard
-# do lado da planilha de cadastro mostar posso ver por la tambem
+Reiniciar_programa()
 
-# Fazer um comando para ja abrir o APP em tela cheia
-
-# Achar outra referencia alem da 04:00:00
+#== Play ==#
+F10_BOT() 
+#==========#
