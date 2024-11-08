@@ -9,21 +9,21 @@ import PIL
 import sys
 import os
 
-#================================ ACHAR POSITION ======================================#
+#================================ ACHAR POSITION ==========================================#
 def achar_position():
     time.sleep(8)
     posição = pyautogui.position()
     print(f"POSITION: \033[32m{posição}\033[0m")
 
 
-#=============================== PRENCHER CPF - F10 ===================================#
+#=============================== PRENCHER CPF - F10 =======================================#
 def prencher_cpf():
     pyautogui.press("down")
     time.sleep(0.20)
     pyautogui.press("Enter")
 
 
-#================================ ACHAR CEP - F10 =====================================#
+#================================ ACHAR CEP - F10 =========================================#
 def achar_cep():
     pyautogui.press("Enter")
     time.sleep(0.10)
@@ -31,60 +31,43 @@ def achar_cep():
         pyautogui.press("tab")
 
 
-#================================== MARCAR "OK" =======================================#
+#================================== MARCAR "OK" ===========================================#
 def marcar_ok():
     for i in range(2): 
         pyautogui.press("left")
     pyautogui.press("space")
 
 
-#================================ VOLTAR PARA O "CPF" =================================#
+#================================ VOLTAR PARA O "CPF" =====================================#
 def voltar_para_cpf():
     for i in range(3): 
         pyautogui.press("left") 
 
 
-#================================== PROXIMO "CPF" =====================================#
+#================================== PROXIMO "CPF" =========================================#
 def proximo_cpf():
     pyautogui.press("down")
 
 
-#=================================== COPIA "CEP" ======================================#
+#=================================== COPIA "CEP" ==========================================#
 def copia_CEP():
     for i in range(5): 
         pyautogui.press("right") 
 
 
-#=================================== APAGAR "CEP" =====================================#
+#=================================== APAGAR "CEP" =========================================#
 def apagar_CEP():
     for i in range(10):
         pyautogui.press("Backspace")
 
 
-#================================ DIRECIONAR USUÁRIO ==================================#
-def Direcionar_usuário():
-    print("\033[93m=" * 40)
-    print("ABRA A JANELA DO \033[0m'GOOGLE CHROME'\033[0m".center(40))
-    for i in range(11):
-        print(f"--> {i}")
-        time.sleep(1)
-    print("\033[93m=" * 40)
-    print("ABRA A JANELA DO \033[0m'F10'\033[0m \033[93mE PERMANECAR NELA\033[0m".center(40))
-    for i in range(11):
-        print(f"--> {i}")
-        time.sleep(1)
-    print("\033[92m=" * 40)
-    print("PROGRAMA RODANDO...".center(40))
-    print("\033[92m=" * 40)
-
-
-#================================= ESCOLHER CONTRATO ====================================#
+#================================= ESCOLHER CONTRATO ======================================#
 def Tipo_de_Contarto():
     Tipo_de_Contarto = "Bolsa"
     return pyautogui.write(Tipo_de_Contarto)
 
 
-#================================= ESCOLHER MATRÍCULA ===================================#
+#================================= ESCOLHER MATRÍCULA =====================================#
 def Matrícula(valor):
     data_do_usuário = valor
     for i in range(10):
@@ -92,19 +75,19 @@ def Matrícula(valor):
     return pyautogui.write(data_do_usuário)
 
 
-#================================== ESCOLHER EVENTO =====================================#
+#================================== ESCOLHER EVENTO =======================================#
 def Evento():
     Evento = "RIO+CURSOS"
     return pyautogui.write(Evento)
 
 
-#================================ ESCOLHER COORDENADOR ===================================#
+#================================ ESCOLHER COORDENADOR ====================================#
 def Coordenador():
     Coordenador = "Rodrigo Drumond"
     return pyautogui.write(Coordenador)
 
 
-#=================================== ESCOLHER POLO =======================================#
+#=================================== ESCOLHER POLO ========================================#
 def polo():
     for i in range(9):
         pyautogui.press("tab")
@@ -120,14 +103,14 @@ def polo():
     pyautogui.press("space")
 
 
-#================================= TURMA EM ABERTO =======================================#
+#================================= TURMA EM ABERTO ========================================#
 def turma_em_aberto():
     for i in range(8):
         pyautogui.hotkey('shift', 'tab')
     pyautogui.press("space")
 
 
-#================================== OPÇÕES DE CURSOS =====================================#
+#================================== OPÇÕES DE CURSOS ======================================#
 def Curso(valor):
     curso_do_usuário = valor
     return pyautogui.write(curso_do_usuário)
@@ -151,17 +134,6 @@ def BUTÃO_GRAVAR():
         pyautogui.press('tab')
         time.sleep(3) #=============================== EXCLUIR
     #pyautogui.press("Enter")
-
-
-#================================= FINALIZAR PROGRAMA =====================================#
-def FINALIZAR_PROGRAMA():
-    #=====================================#
-    #======== PROGRAMA FINALIZADO ========#
-    print("\033[31m=" * 40)
-    print("PROGRAMA ENCERRADO!".center(40))
-    print("=" * 40)
-    #=====================================#
-    #=====================================#
 
 
 #============================== VERIFICAR MENOR DE IDADE ==================================#
@@ -197,7 +169,7 @@ def Fechar_página_de_cadastro():
     pyautogui.hotkey('alt', 'o', 'c') # Voltar para a página de cadastro
 
 
-#============================ VOLTAR E MARCA "Menor de idade" =============================#
+#================================ VOLTAR E MARCA "-18" ====================================#
 def Marcar_menor_de_idade():
     time.sleep(3)
     pyautogui.hotkey('alt', 'tab') # Chrome
@@ -205,7 +177,7 @@ def Marcar_menor_de_idade():
     for i in range(7): 
         pyautogui.press("left") 
     time.sleep(0.20)
-    pyautogui.write("Menor de idade ") # escrever menor de idade
+    pyautogui.write("-18") # escrever menor de idade
     time.sleep(0.20)
     for i in range(2): 
         pyautogui.press("right")
@@ -242,7 +214,7 @@ def Verificar_cpf():
         pass
 
 
-#================================ MARCA ERRO DE CPF =======================================#
+#============================ VOLTAR E MARCA ERRO DE CPF ==================================#
 def Marca_erro_de_cpf():
     time.sleep(3)
     pyautogui.hotkey('alt', 'tab') # Chrome
@@ -251,6 +223,37 @@ def Marca_erro_de_cpf():
         pyautogui.press("left") 
     time.sleep(0.20)
     pyautogui.write("ERRO! - CPF") # erro! - cpf
+    time.sleep(0.20)
+    for i in range(2): 
+        pyautogui.press("right")
+        time.sleep(0.20)
+    pyautogui.press("down")
+    time.sleep(0.20)
+    pyautogui.hotkey('alt', 'tab') # F10
+
+
+#================================== VERIFICAR CEP =========================================#
+def Verificar_cep():
+    time.sleep(2)
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
+    texto = pytesseract.image_to_string(print_da_tela) # Converte a imagem em texto
+    Achar_essa_menssagem = "CEP Invalido" # Achar menssagem
+    if Achar_essa_menssagem in texto:
+        return True
+    else:
+        return False
+
+
+#============================ VOLTAR E MARCA ERRO DE CEP ==================================#
+def Marca_erro_de_cep():
+    time.sleep(3)
+    pyautogui.hotkey('alt', 'tab') # Chrome
+    time.sleep(0.20)
+    for i in range(7): 
+        pyautogui.press("left") 
+    time.sleep(0.20)
+    pyautogui.write("ERRO! - CEP") # erro! - cpf
     time.sleep(0.20)
     for i in range(2): 
         pyautogui.press("right")

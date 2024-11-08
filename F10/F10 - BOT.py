@@ -180,6 +180,16 @@ while True:
         time.sleep(2)
         continue
     #======================== VERIFICAR MENOR DE IDADE =================================#
+    Resultado_erro_cep = Funções.Verificar_cep()
+    if Resultado_erro_cep == True:
+        pyautogui.press("space") # clica no butão "OK"
+        time.sleep(1)
+        Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
+        time.sleep(1)
+        Funções.Marca_erro_de_cep() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CPF
+        time.sleep(2)
+        continue
+    #======================== VERIFICAR MENOR DE IDADE =================================#
     Resultado_menor_de_idade = Funções.Verificar_menor_de_idade() #------------------------------>>>>>>>>>>>>> VERIFICA SE E MENOR DE IDADE
     time.sleep(1)
     if Resultado_menor_de_idade == True:
@@ -243,7 +253,7 @@ while True:
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(5)
     #======================================== VERIFICAR LIMITE ===============================================#
-    Contador = Funções.Contar_inscrições(Novo_cadastrado, Quantidade_inscrições, Limite_inscrições) #----->>>>>>>>>>>>> LIMITE DE INSCRIÇÕES
+    Contador = Funções.Contar_inscrições(Novo_cadastrado, Quantidade_inscrições, Limite_inscrições) #---->>>>>>>>>>>>> LIMITE DE INSCRIÇÕES
     if Contador == True:
         break
 
