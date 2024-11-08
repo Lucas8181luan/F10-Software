@@ -135,7 +135,7 @@ app.mainloop() # Abrir o aplicativo
 #########################################################################################################################
 Novo_cadastrado = 0 # para função (LIMITE DE INSCRIÇÕES)
 time.sleep(10)
-for vezes in range(numero): 
+while True: 
     #=========================== BUTÃO ADICIONAR ============================#
     pyautogui.hotkey('Alt', 'o', 'i')  
     time.sleep(2)
@@ -169,10 +169,20 @@ for vezes in range(numero):
     #============================ BUTÃO PROXIMO - 1 ====================================#
     Funções.BUTÃO_PROXIMO_1()
     time.sleep(2)
+    #============================ VERIFICAR CPF ========================================#
+    Resultado_erro_cpf = Funções.Verificar_cpf() #--------------------------------------------------------------->>>>>>>>>>>>> VERIFICA CPF
+    if Resultado_erro_cpf == True:
+        pyautogui.press("space") # clica no butão "OK"
+        time.sleep(1)
+        Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
+        time.sleep(1)
+        Funções.Marca_erro_de_cpf() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CPF
+        time.sleep(2)
+        continue
     #======================== VERIFICAR MENOR DE IDADE =================================#
-    Resultado = Funções.Verificar_menor_de_idade() #--------------------------------------------->>>>>>>>>>>>> VERIFICA SE E MENOR DE IDADE
+    Resultado_menor_de_idade = Funções.Verificar_menor_de_idade() #------------------------------>>>>>>>>>>>>> VERIFICA SE E MENOR DE IDADE
     time.sleep(1)
-    if Resultado == True:
+    if Resultado_menor_de_idade == True:
         Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
         time.sleep(1)
         Funções.Marcar_menor_de_idade() #-------------------------------------------------------------->>>>>>>>>>>>> MARCAR MENOR DE IDADES

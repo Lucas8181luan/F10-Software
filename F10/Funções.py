@@ -145,7 +145,7 @@ def BUTÃO_PROXIMO_2():
         pyautogui.press('tab')
 
 
-#==================================== BUTÃO GRAVAR ========================================#
+#=================================== BUTÃO GRAVAR =========================================#
 def BUTÃO_GRAVAR():
     for i in range(8):
         pyautogui.press('tab')
@@ -227,3 +227,34 @@ def Contar_inscrições(Contador, Valor_atual, Limite):
         return True
     else:
         pass
+
+
+#================================== VERIFICAR CPF =========================================#
+def Verificar_cpf():
+    time.sleep(2)
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
+    texto = pytesseract.image_to_string(print_da_tela) # Converte a imagem em texto
+    Achar_essa_menssagem = "CPF ou do CNP" # Achar menssagem
+    if Achar_essa_menssagem in texto:
+        return True
+    else:
+        pass
+
+
+#================================ MARCA ERRO DE CPF =======================================#
+def Marca_erro_de_cpf():
+    time.sleep(3)
+    pyautogui.hotkey('alt', 'tab') # Chrome
+    time.sleep(0.20)
+    for i in range(7): 
+        pyautogui.press("left") 
+    time.sleep(0.20)
+    pyautogui.write("ERRO! - CPF") # erro! - cpf
+    time.sleep(0.20)
+    for i in range(2): 
+        pyautogui.press("right")
+        time.sleep(0.20)
+    pyautogui.press("down")
+    time.sleep(0.20)
+    pyautogui.hotkey('alt', 'tab') # F10
