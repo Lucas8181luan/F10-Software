@@ -270,3 +270,6 @@ Reiniciar_programa()
 #== Play ==#
 F10_BOT() 
 #==========#
+
+# TEXTA E TEXTA O PROGRAMA VARIAS VEZES
+# -> ERRO CEP
