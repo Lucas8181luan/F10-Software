@@ -8,6 +8,7 @@ import ctypes
 import PIL
 import sys
 import os
+import pyperclip
 
 #================================= ACHAR POSITION =========================================#
 def achar_position():
@@ -51,7 +52,7 @@ def proximo_cpf():
 
 #=================================== COPIA "CEP" ==========================================#
 def copia_CEP():
-    for i in range(5): 
+    for i in range(1): 
         pyautogui.press("right") 
 
 
@@ -254,6 +255,37 @@ def Marca_erro_de_cep():
         pyautogui.press("left") 
     time.sleep(0.20)
     pyautogui.write("ERRO! - CEP") # erro! - cpf
+    time.sleep(0.20)
+    for i in range(2): 
+        pyautogui.press("right")
+        time.sleep(0.20)
+    pyautogui.press("down")
+    time.sleep(0.20)
+    pyautogui.hotkey('alt', 'tab') # F10
+
+
+#=============================== VERIFICAR TELEFONE =======================================#
+def Verificar_telefone():
+    for i in range(4): 
+        pyautogui.press("right") 
+    time.sleep(2)
+    pyautogui.hotkey('ctrl', 'c') # copia o "TELEFONE"
+    numero = pyperclip.paste()
+    numero = numero.replace("-", "").replace(" ", "").replace("(", "").replace(")", "")
+    Quantidades_de_digitos = len(numero)
+    if Quantidades_de_digitos == 11:
+        return True
+    else:
+        return False
+
+
+#========================= VOLTAR E MARCA ERRO DE TEELFONE ================================#
+def Marca_erro_telefone():
+    time.sleep(0.20)
+    for i in range(6): 
+        pyautogui.press("left") 
+    time.sleep(0.20)
+    pyautogui.write("ERRO! - TELEFONE") # erro! - cpf
     time.sleep(0.20)
     for i in range(2): 
         pyautogui.press("right")

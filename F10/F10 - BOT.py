@@ -8,6 +8,7 @@ import ctypes
 import PIL
 import sys
 import subprocess
+import pyperclip
 
 #########################################################################################################################
 ###>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PROGRAMA INICIAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<###
@@ -136,7 +137,7 @@ app.mainloop() # Abrir o aplicativo
 Novo_cadastrado = 0 # para função (LIMITE DE INSCRIÇÕES)
 time.sleep(10)
 while True:
-    if Quantidade_inscrições - Limite_inscrições == 0:
+    if Quantidade_inscrições - Limite_inscrições == 0 or Quantidade_inscrições > Limite_inscrições:
         break
     #=========================== BUTÃO ADICIONAR ============================#
     pyautogui.hotkey('Alt', 'o', 'i')  
@@ -156,7 +157,20 @@ while True:
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(2)
-    Funções.copia_CEP()
+    #========================= VERIFICAR TELEFONE ======================================#
+    Resultado_erro_telefone = Funções.Verificar_telefone() #---------------------------------------------->>>>>>>>>>>>> VERIFICAR TELEFONE
+    if Resultado_erro_telefone == False:
+        time.sleep(1)
+        pyautogui.hotkey('alt', 'tab') # F10
+        time.sleep(1)
+        Funções.Fechar_página_de_cadastro() #------------------------------------------------------>>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
+        time.sleep(1)
+        pyautogui.hotkey('alt', 'tab') # Chrome
+        time.sleep(1)
+        Funções.Marca_erro_telefone() #--------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE TELEFONE
+        continue
+    #========================= COPIA E COLAR "CEP" =====================================#
+    Funções.copia_CEP() #------------------------------------------------------------------------------------------>>>>>>>>>>>>> COPIA CEP
     time.sleep(1)
     pyautogui.hotkey('ctrl', 'c') # copia o "CEP"
     time.sleep(1)
@@ -164,7 +178,7 @@ while True:
     time.sleep(2)
     Funções.achar_cep() #------------------------------------------------------------------------------------>>>>>>>>>>>>> ACHAR CEP - F10
     time.sleep(0.10)
-    Funções.apagar_CEP()   
+    Funções.apagar_CEP() #-------------------------------------------------------------------------------->>>>>>>>>>>>> APAGAR E COLAR CEP
     time.sleep(1)
     pyautogui.hotkey('ctrl', 'v') # colar o "CEP"
     time.sleep(1)
