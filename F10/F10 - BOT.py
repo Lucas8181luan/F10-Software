@@ -288,3 +288,4 @@ F10_BOT()
 #==========#
 
 # -> SETA ESCONDIDA
+# -> AUMENTAR OS TIMES PARA +1
