@@ -116,7 +116,7 @@ button_iniciar_programa.pack(pady=10) # posição
 #=================================================================================#
 
 #============================== BUTÃO PARA FECHAR ================================#
-button_fechar_programa = tk.Button(app, text="FECHAR PROGRAMA", command=app.destroy, width=20, height=2, font=("Arial", 10, "bold"), bg="red", fg="white")
+button_fechar_programa = tk.Button(app, text="FECHAR PROGRAMA", command=app.quit, width=20, height=2, font=("Arial", 10, "bold"), bg="red", fg="white")
 button_fechar_programa.pack(pady=5) # posição
 #=================================================================================#
 
@@ -135,7 +135,9 @@ app.mainloop() # Abrir o aplicativo
 #########################################################################################################################
 Novo_cadastrado = 0 # para função (LIMITE DE INSCRIÇÕES)
 time.sleep(10)
-while True: 
+while True:
+    if Quantidade_inscrições - Limite_inscrições == 0:
+        break
     #=========================== BUTÃO ADICIONAR ============================#
     pyautogui.hotkey('Alt', 'o', 'i')  
     time.sleep(2)
@@ -271,6 +273,4 @@ Reiniciar_programa()
 F10_BOT() 
 #==========#
 
-# TEXTA E TEXTA O PROGRAMA VARIAS VEZES
-# -> ERRO CEP
-# -> ERRO do loop
+# -> SETA ESCONDIDA

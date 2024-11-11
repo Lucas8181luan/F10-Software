@@ -9,7 +9,7 @@ import PIL
 import sys
 import os
 
-#================================ ACHAR POSITION ==========================================#
+#================================= ACHAR POSITION =========================================#
 def achar_position():
     time.sleep(8)
     posição = pyautogui.position()
@@ -103,7 +103,7 @@ def polo():
     pyautogui.press("space")
 
 
-#================================= TURMA EM ABERTO ========================================#
+#================================== TURMA EM ABERTO =======================================#
 def turma_em_aberto():
     for i in range(8):
         pyautogui.hotkey('shift', 'tab')
