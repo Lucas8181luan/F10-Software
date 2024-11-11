@@ -279,7 +279,7 @@ def Verificar_telefone():
         return False
 
 
-#========================= VOLTAR E MARCA ERRO DE TEELFONE ================================#
+#========================= VOLTAR E MARCA ERRO DE TELEFONE ================================#
 def Marca_erro_telefone():
     time.sleep(0.20)
     for i in range(6): 

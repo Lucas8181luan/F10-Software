@@ -251,20 +251,20 @@ while True:
         #============================ BUTÃO GRAVAR ====================================# 
         Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
         time.sleep(2)
-        Novo_cadastrado += 1
+        Novo_cadastrado += 1 # para cada novo aluno cadastrado
     else:
         #=========================== BUTÃO GRAVAR =====================================#
         Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
         time.sleep(2)
-        Novo_cadastrado += 1
+        Novo_cadastrado += 1 # para cada novo aluno cadastrado
     #============================================== EXCEL ====================================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(3) 
     Funções.marcar_ok() # marca OK
     time.sleep(2)
-    Funções.voltar_para_cpf()
-    time.sleep(2) # voltar para o cpf
-    Funções.proximo_cpf() # passar para o proximo cpf
+    Funções.voltar_para_cpf() #--------------------------------------------------------------------->>>>>>>>>>>>> VOLTA E MARCA "CPF" ERRDO
+    time.sleep(2) 
+    Funções.proximo_cpf() #------------------------------------------------------------------------------------->>>>>>>>>>>>> PROXIMO "CPF"
     time.sleep(3)
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(5)
@@ -287,5 +287,4 @@ Reiniciar_programa()
 F10_BOT() 
 #==========#
 
-# -> SETA ESCONDIDA
 # -> AUMENTAR OS TIMES PARA +1
