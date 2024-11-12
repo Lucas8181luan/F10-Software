@@ -9,6 +9,7 @@ import PIL
 import sys
 import subprocess
 import pyperclip
+import re
 
 #########################################################################################################################
 ###>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PROGRAMA INICIAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<###
@@ -157,6 +158,18 @@ while True:
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(2)
+    #=========================== VERIFICAR NOME ========================================#
+    Resultado_verificar_nome = Funções.Verificar_nome() #---------------------------------------------------->>>>>>>>>>>>> VERIFICA O NOME
+    if Resultado_verificar_nome == False:
+        time.sleep(1)
+        pyautogui.hotkey('alt', 'tab') # F10
+        time.sleep(1)
+        Funções.Fechar_página_de_cadastro() #------------------------------------------------------>>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
+        time.sleep(1)
+        pyautogui.hotkey('alt', 'tab') # Chrome
+        time.sleep(1)
+        Funções.Marca_erro_nome() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE NOME
+        continue
     #========================= VERIFICAR TELEFONE ======================================#
     Resultado_erro_telefone = Funções.Verificar_telefone() #---------------------------------------------->>>>>>>>>>>>> VERIFICAR TELEFONE
     if Resultado_erro_telefone == False:
@@ -287,5 +300,4 @@ Reiniciar_programa()
 F10_BOT() 
 #==========#
 
-# -> CRIAR UMA FUNÇÃO PARA REMOVER OS CARACTERES ESPECIAIS DOS NOMES ou COPIA E COLA O NOME DA PLANILHA
 # -> AUMENTAR OS TIMES PARA +1
