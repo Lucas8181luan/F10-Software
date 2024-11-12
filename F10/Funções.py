@@ -303,8 +303,7 @@ def Verificar_nome():
     time.sleep(2)
     pyautogui.hotkey('ctrl', 'c') # copia o "NOME"
     nome = pyperclip.paste()
-    nome = nome.replace("-", "").replace(" ", "").replace("(", "").replace(")", "")
-    nome_limpo = re.sub(r'[^a-zA-Z\s]', '', nome) 
+    nome_limpo = re.sub(r'[^a-zA-ZáéíóúàèìòùãõâêîôûÁÉÍÓÚÀÈÌÒÙÃÕÂÊÎÔÛÇç\s]', '', nome)
     if nome == nome_limpo:
         return True
     else:
