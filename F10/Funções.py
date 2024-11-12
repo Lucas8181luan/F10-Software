@@ -134,7 +134,7 @@ def BUTÃO_PROXIMO_2():
 def BUTÃO_GRAVAR():
     for i in range(8):
         pyautogui.press('tab')
-        time.sleep(1) #=============================== EXCLUIR
+        time.sleep(3) #=============================== EXCLUIR
     #pyautogui.press("Enter")
 
 
@@ -209,7 +209,7 @@ def Verificar_cpf():
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
     texto = pytesseract.image_to_string(print_da_tela) # Converte a imagem em texto
-    Achar_essa_menssagem = "CPF ou do CNJ" # Achar menssagem
+    Achar_essa_menssagem = "CPF ou do CNP" # Achar menssagem
     if Achar_essa_menssagem in texto:
         return True
     else:
@@ -244,7 +244,7 @@ def Verificar_cep():
     if Achar_essa_menssagem in texto:
         return True
     else:
-        pass
+        return False
 
 
 #============================ VOLTAR E MARCA ERRO DE CEP ==================================#
@@ -303,7 +303,8 @@ def Verificar_nome():
     time.sleep(2)
     pyautogui.hotkey('ctrl', 'c') # copia o "NOME"
     nome = pyperclip.paste()
-    nome_limpo = re.sub(r'[^a-zA-ZáéíóúàèìòùãõâêîôûÁÉÍÓÚÀÈÌÒÙÃÕÂÊÎÔÛÇç\s]', '', nome)
+    nome = nome.replace("-", "").replace(" ", "").replace("(", "").replace(")", "")
+    nome_limpo = re.sub(r'[^a-zA-Z\s]', '', nome) 
     if nome == nome_limpo:
         return True
     else:
@@ -324,28 +325,3 @@ def Marca_erro_nome():
     pyautogui.press("down") # proximo "CPF"
     time.sleep(0.20)
     pyautogui.hotkey('alt', 'tab') # F10
-
-
-#=========================== VERIFICAR REMOVER TITULAR ====================================#
-def Verificar_remover_titular():
-    time.sleep(2)
-    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-    print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
-    texto = pytesseract.image_to_string(print_da_tela) # Converte a imagem em texto
-    Achar_essa_menssagem = "Dados do Contrato" # Achar menssagem
-    if Achar_essa_menssagem in texto:
-        return True
-    else:
-        pass
-
-
-#=============================== REMOVER TITULAR ==========================================#
-def Remover_titular():
-    time.sleep(1)
-    for i in range(1):
-        pyautogui.press("tab")
-    pyautogui.press("Enter")
-    time.sleep(0.20)
-    pyautogui.press("tab")
-    for i in range(1):
-        pyautogui.hotkey('Ctrl', 'tab')
