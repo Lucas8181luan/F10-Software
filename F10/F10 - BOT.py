@@ -138,7 +138,7 @@ app.mainloop() # Abrir o aplicativo
 Novo_cadastrado = 0 # para função (LIMITE DE INSCRIÇÕES)
 time.sleep(10)
 while True:
-    if Quantidade_inscrições - Limite_inscrições == 0 or Quantidade_inscrições > Limite_inscrições:
+    if Quantidade_inscrições - Limite_inscrições == 0 or Quantidade_inscrições > Limite_inscrições or numero == 0:
         break
     #=========================== BUTÃO ADICIONAR ============================#
     pyautogui.hotkey('Alt', 'o', 'i')  
@@ -201,21 +201,32 @@ while True:
     #============================ VERIFICAR CPF ========================================#
     Resultado_erro_cpf = Funções.Verificar_cpf() #--------------------------------------------------------------->>>>>>>>>>>>> VERIFICA CPF
     if Resultado_erro_cpf == True:
-        pyautogui.press("space") # clica no butão "OK"
+        pyautogui.press("Enter") # clica no butão "OK"
         time.sleep(1)
         Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
         time.sleep(1)
         Funções.Marca_erro_de_cpf() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CPF
         time.sleep(2)
         continue
-    #======================== VERIFICAR MENOR DE IDADE =================================#
-    Resultado_erro_cep = Funções.Verificar_cep()
-    if Resultado_erro_cep == True:
-        pyautogui.press("space") # clica no butão "OK"
+     #====================== VERIFICAR REMOVER TITULAR ==================================#
+    Resultado_remover_titular = Funções.Verificar_remover_titular() #------------------------------->>>>>>>>>>>>> VERIFICAR REMOVER TITULAR
+    if Resultado_remover_titular == True:
+        time.sleep(1)
+        Funções.Remover_titular() #--------------------------------------------------------------------------->>>>>>>>>>>>> REMOVER TITULAR
         time.sleep(1)
         Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
         time.sleep(1)
-        Funções.Marca_erro_de_cep() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CPF
+        Funções.Marca_erro_de_cpf() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CPF
+        time.sleep(2)
+        continue
+    #============================ VERIFICAR CEP ========================================#
+    Resultado_erro_cep = Funções.Verificar_cep()
+    if Resultado_erro_cep == True:
+        pyautogui.press("Enter") # clica no butão "OK"
+        time.sleep(1)
+        Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
+        time.sleep(1)
+        Funções.Marca_erro_de_cep() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CEP
         time.sleep(2)
         continue
     #======================== VERIFICAR MENOR DE IDADE =================================#
