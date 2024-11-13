@@ -303,5 +303,5 @@ F10_BOT()
 #==========#
 
 # Verificar porque não ta parando na quantidade de iscritos que eu peço no loop
-# Copia e colar o telefone
+# Copia e colar o TELEFONE
 # Resumir os comandos tipo as funções de "CEP"
