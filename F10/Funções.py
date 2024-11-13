@@ -9,7 +9,6 @@ import PIL
 import sys
 import os
 import pyperclip
-import re
 
 #================================= ACHAR POSITION =========================================#
 def achar_position():
@@ -144,7 +143,7 @@ def Verificar_menor_de_idade():
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
     texto = pytesseract.image_to_string(print_da_tela) # Converte a imagem em texto
-    Achar_essa_menssagem = "Adicionar Titular (Responsavel pelo Contrato)" # Achar menssagem
+    Achar_essa_menssagem = "Adicionar Titular" # Achar menssagem
     if Achar_essa_menssagem in texto:
         return True
     else:
@@ -179,12 +178,12 @@ def Marcar_menor_de_idade():
     for i in range(7): 
         pyautogui.press("left") 
     time.sleep(0.20)
-    pyautogui.write("-18") # escrever menor de idade
+    pyautogui.write("IDADE -18") # escrever menor de idade
     time.sleep(0.20)
     for i in range(2): 
         pyautogui.press("right")
         time.sleep(0.20)
-    pyautogui.press("down") # proximo "CPF"
+    pyautogui.press("down")
     time.sleep(0.20)
     pyautogui.hotkey('alt', 'tab') # F10
 
@@ -229,14 +228,14 @@ def Marca_erro_de_cpf():
     for i in range(2): 
         pyautogui.press("right")
         time.sleep(0.20)
-    pyautogui.press("down") # proximo "CPF"
+    pyautogui.press("down")
     time.sleep(0.20)
     pyautogui.hotkey('alt', 'tab') # F10
 
 
 #================================== VERIFICAR CEP =========================================#
 def Verificar_cep():
-    time.sleep(1)
+    time.sleep(2)
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     print_da_tela = pyautogui.screenshot() # Tira uma captura da tela
     texto = pytesseract.image_to_string(print_da_tela) # Converte a imagem em texto
@@ -260,14 +259,14 @@ def Marca_erro_de_cep():
     for i in range(2): 
         pyautogui.press("right")
         time.sleep(0.20)
-    pyautogui.press("down") # proximo "CPF"
+    pyautogui.press("down")
     time.sleep(0.20)
     pyautogui.hotkey('alt', 'tab') # F10
 
 
 #=============================== VERIFICAR TELEFONE =======================================#
 def Verificar_telefone():
-    for i in range(3): 
+    for i in range(4): 
         pyautogui.press("right") 
     time.sleep(2)
     pyautogui.hotkey('ctrl', 'c') # copia o "TELEFONE"
@@ -280,7 +279,7 @@ def Verificar_telefone():
         return False
 
 
-#========================= VOLTAR E MARCA ERRO DE TELEFONE ================================#
+#========================= VOLTAR E MARCA ERRO DE TEELFONE ================================#
 def Marca_erro_telefone():
     time.sleep(0.20)
     for i in range(6): 
@@ -291,36 +290,6 @@ def Marca_erro_telefone():
     for i in range(2): 
         pyautogui.press("right")
         time.sleep(0.20)
-    pyautogui.press("down") # proximo "CPF"
-    time.sleep(0.20)
-    pyautogui.hotkey('alt', 'tab') # F10
-
-
-#================================ CORRIGIR NOME ===========================================#
-def Verificar_nome():
-    for i in range(1): 
-        pyautogui.press("right") 
-    time.sleep(2)
-    pyautogui.hotkey('ctrl', 'c') # copia o "NOME"
-    nome = pyperclip.paste()
-    nome_limpo = re.sub(r'[^a-zA-ZáéíóúàèìòùãõâêîôûÁÉÍÓÚÀÈÌÒÙÃÕÂÊÎÔÛÇç\s]', '', nome)
-    if nome == nome_limpo:
-        return True
-    else:
-        return False
-
-
-#========================== VOLTAR E MARCA ERRO DE NOME ===================================#
-def Marca_erro_nome():
-    time.sleep(3)
-    for i in range(3): 
-        pyautogui.press("left") 
-    time.sleep(0.20)
-    pyautogui.write("ERRO! - NOME") # erro! - cpf
-    time.sleep(0.20)
-    for i in range(2): 
-        pyautogui.press("right")
-        time.sleep(0.20)
-    pyautogui.press("down") # proximo "CPF"
+    pyautogui.press("down")
     time.sleep(0.20)
     pyautogui.hotkey('alt', 'tab') # F10

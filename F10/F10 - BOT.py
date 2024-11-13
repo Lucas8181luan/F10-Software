@@ -9,7 +9,6 @@ import PIL
 import sys
 import subprocess
 import pyperclip
-import re
 
 #########################################################################################################################
 ###>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PROGRAMA INICIAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<###
@@ -158,18 +157,6 @@ while True:
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(2)
-    #=========================== VERIFICAR NOME ========================================#
-    Resultado_verificar_nome = Funções.Verificar_nome() #---------------------------------------------------->>>>>>>>>>>>> VERIFICA O NOME
-    if Resultado_verificar_nome == False:
-        time.sleep(1)
-        pyautogui.hotkey('alt', 'tab') # F10
-        time.sleep(1)
-        Funções.Fechar_página_de_cadastro() #------------------------------------------------------>>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
-        time.sleep(1)
-        pyautogui.hotkey('alt', 'tab') # Chrome
-        time.sleep(1)
-        Funções.Marca_erro_nome() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE NOME
-        continue
     #========================= VERIFICAR TELEFONE ======================================#
     Resultado_erro_telefone = Funções.Verificar_telefone() #---------------------------------------------->>>>>>>>>>>>> VERIFICAR TELEFONE
     if Resultado_erro_telefone == False:
@@ -198,7 +185,7 @@ while True:
     #============================ BUTÃO PROXIMO - 1 ====================================#
     Funções.BUTÃO_PROXIMO_1()
     time.sleep(2)
-    #============================ VERIFICAR CPF ========================================#
+    #============================= VERIFICAR CPF =======================================#
     Resultado_erro_cpf = Funções.Verificar_cpf() #--------------------------------------------------------------->>>>>>>>>>>>> VERIFICA CPF
     if Resultado_erro_cpf == True:
         pyautogui.press("space") # clica no butão "OK"
@@ -208,14 +195,14 @@ while True:
         Funções.Marca_erro_de_cpf() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CPF
         time.sleep(2)
         continue
-    #============================= VERIFICAR CEP =======================================#
+    #============================== VERIFICAR CEP ======================================#
     Resultado_erro_cep = Funções.Verificar_cep()
     if Resultado_erro_cep == True:
         pyautogui.press("space") # clica no butão "OK"
         time.sleep(1)
         Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
         time.sleep(1)
-        Funções.Marca_erro_de_cep() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CEP
+        Funções.Marca_erro_de_cep() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CPF
         time.sleep(2)
         continue
     #======================== VERIFICAR MENOR DE IDADE =================================#
@@ -228,7 +215,7 @@ while True:
         time.sleep(2)
         continue
     #================================ PARTE - 2 ========================================#
-    #================ TIPO DE CONTRATO ==================#
+    #================ TIPO DE CONTRATO ===================#
     pyautogui.press("tab")
     Funções.Tipo_de_Contarto() #----------------------------------------------------------------------------->>>>>>>>>>>>> TIPO DE CONTRATO
     time.sleep(1) 
@@ -252,7 +239,7 @@ while True:
     #============================ BUTÃO PROXIMO - 2 ====================================#
     Funções.BUTÃO_PROXIMO_2()
     time.sleep(2)
-    #=============================== PARTE - 3 =====================================#
+    #================================ PARTE - 3 ========================================#
     Funções.polo() #----------------------------------------------------------------------------------------------------->>>>>>>>>>>>> POLO
     time.sleep(2)                               
     #-------
@@ -264,20 +251,20 @@ while True:
         #============================ BUTÃO GRAVAR ====================================# 
         Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
         time.sleep(2)
-        Novo_cadastrado += 1 # para cada novo aluno cadastrado
+        Novo_cadastrado += 1
     else:
         #=========================== BUTÃO GRAVAR =====================================#
         Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
         time.sleep(2)
-        Novo_cadastrado += 1 # para cada novo aluno cadastrado
+        Novo_cadastrado += 1
     #============================================== EXCEL ====================================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(3) 
     Funções.marcar_ok() # marca OK
     time.sleep(2)
-    Funções.voltar_para_cpf() #--------------------------------------------------------------------->>>>>>>>>>>>> VOLTA E MARCA "CPF" ERRDO
-    time.sleep(2) 
-    Funções.proximo_cpf() #------------------------------------------------------------------------------------->>>>>>>>>>>>> PROXIMO "CPF"
+    Funções.voltar_para_cpf()
+    time.sleep(2) # voltar para o cpf
+    Funções.proximo_cpf() # passar para o proximo cpf
     time.sleep(3)
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(5)
@@ -299,6 +286,3 @@ Reiniciar_programa()
 #== Play ==#
 F10_BOT() 
 #==========#
-
-# -> AUMENTAR OS TIMES PARA +1
-# -> FINALIZAR A FERRAMENTA
