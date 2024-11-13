@@ -146,7 +146,7 @@ while True:
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(4)
     pyautogui.hotkey('ctrl', 'c') # copia o "CPF"
-    time.sleep(0.10)
+    time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(5)
     Funções.prencher_cpf() #------------------------------------------------------------------------------>>>>>>>>>>>>> PRENCHER CPF - F10
@@ -177,7 +177,7 @@ while True:
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(2)
     Funções.achar_cep() #------------------------------------------------------------------------------------>>>>>>>>>>>>> ACHAR CEP - F10
-    time.sleep(0.10)
+    time.sleep(1)
     Funções.apagar_CEP() #-------------------------------------------------------------------------------->>>>>>>>>>>>> APAGAR E COLAR CEP
     time.sleep(1)
     pyautogui.hotkey('ctrl', 'v') # colar o "CEP"
@@ -253,7 +253,7 @@ while True:
         time.sleep(2)
         Novo_cadastrado += 1
     else:
-        #=========================== BUTÃO GRAVAR =====================================#
+        #============================ BUTÃO GRAVAR ====================================#
         Funções.BUTÃO_GRAVAR() #--------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO GRAVAR
         time.sleep(2)
         Novo_cadastrado += 1
