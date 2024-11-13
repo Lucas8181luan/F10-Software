@@ -133,18 +133,33 @@ app.mainloop() # Abrir o aplicativo
 
 #########################################################################################################################
 ###>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SISTEMA <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<###
-#########################################################################################################################
+######################################################################################################################### 
 Novo_cadastrado = 0 # para função (LIMITE DE INSCRIÇÕES)
 time.sleep(10)
 while True:
     if Quantidade_inscrições - Limite_inscrições == 0 or Quantidade_inscrições > Limite_inscrições:
         break
-    #=========================== BUTÃO ADICIONAR ============================#
+    Funções.Esconder_tecla() #--------------------------------------------------------------------------------->>>>>>>>>>>>> ESCONDER TECLA
+    #=========================== BUTÃO ADICIONAR ==================================#
     pyautogui.hotkey('Alt', 'o', 'i')  
     time.sleep(2)
     #============================= ABRIR EXCEL ====================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(4)
+    #========================= VERIFICAR SE E REPETIDO =================================#
+    Resultado_verificar_repetido = Funções.Cadastro_repetido() #-------------------------------------------->>>>>>>>>>>>> CADASTRO REPETIDO
+    if Resultado_verificar_repetido == True:
+        time.sleep(1)
+        for i in range(2): 
+            pyautogui.press("right")
+        time.sleep(1)
+        Funções.proximo_cpf() #--------------------------------------------------------------------------------->>>>>>>>>>>>> PROXIMO "CPF"
+    else:
+        time.sleep(1)
+        for i in range(2): 
+            pyautogui.press("right")
+        time.sleep(1)
+    #===================================================================================#
     pyautogui.hotkey('ctrl', 'c') # copia o "CPF"
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # F10
@@ -286,3 +301,7 @@ Reiniciar_programa()
 #== Play ==#
 F10_BOT() 
 #==========#
+
+# Verificar porque não ta parando na quantidade de iscritos que eu peço no loop
+# Copia e colar o telefone
+# Resumir os comandos tipo as funções de "CEP"

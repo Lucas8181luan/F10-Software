@@ -39,7 +39,7 @@ def marcar_ok():
     pyautogui.press("space")
 
 
-#================================ VOLTAR PARA O "CPF" =====================================#
+#=============================== VOLTAR PARA O "CPF" ======================================#
 def voltar_para_cpf():
     for i in range(3): 
         pyautogui.press("left") 
@@ -293,3 +293,28 @@ def Marca_erro_telefone():
     pyautogui.press("down")
     time.sleep(0.20)
     pyautogui.hotkey('alt', 'tab') # F10
+
+
+#============================== CADASTRO REPETIDO =========================================#
+def Cadastro_repetido():
+    for i in range(2): 
+        pyautogui.press("left")
+    time.sleep(1)
+    pyautogui.hotkey('ctrl', 'c') # copia o "aba"
+    Repetido = pyperclip.paste()
+    if Repetido == "Repetido":
+        return True
+    else:
+        pass
+
+
+#============================ COPIA E COLAR TELEFONE ======================================#
+def Copia_telefone():
+    print()
+
+
+#================================ ESCONDER MAUSE ==========================================#
+def Esconder_tecla():
+    screen_width, screen_height = pyautogui.size() # Obtém a resolução da tela (largura e altura)
+    pyautogui.moveTo(screen_width // 2, screen_height // 2) # Move o cursor para o centro da tela
+    pyautogui.moveTo(screen_width - 1, screen_height // 2) # Move o cursor para a borda direita da tela
