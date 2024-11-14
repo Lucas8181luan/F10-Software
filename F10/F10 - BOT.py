@@ -173,19 +173,19 @@ while True:
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(2)
     #========================= VERIFICAR TELEFONE ======================================#
-    Resultado_erro_telefone = Funções.Verificar_telefone() #---------------------------------------------->>>>>>>>>>>>> VERIFICAR TELEFONE
+    Resultado_erro_telefone = Funções.Verificar_telefone() #----------------------------------------------->>>>>>>>>>>>> VERIFICAR TELEFONE
     if Resultado_erro_telefone == False:
         time.sleep(1)
         pyautogui.hotkey('alt', 'tab') # F10
         time.sleep(1)
-        Funções.Fechar_página_de_cadastro() #------------------------------------------------------>>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
+        Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
         time.sleep(1)
         pyautogui.hotkey('alt', 'tab') # Chrome
         time.sleep(1)
-        Funções.Marca_erro_telefone() #--------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE TELEFONE
+        Funções.Marca_erro_telefone() #---------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE TELEFONE
         continue
     #========================= COPIA E COLAR "CEP" =====================================#
-    Funções.copia_CEP() #------------------------------------------------------------------------------------------>>>>>>>>>>>>> COPIA CEP
+    Funções.copia_CEP() #------------------------------------------------------------------------------------------->>>>>>>>>>>>> COPIA CEP
     time.sleep(1)
     pyautogui.hotkey('ctrl', 'c') # copia o "CEP"
     time.sleep(1)
