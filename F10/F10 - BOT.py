@@ -16,8 +16,8 @@ import pyperclip
 def F10_BOT():
     #========= NOVAS MATRÍCULAS ==========#
     RESP_Novas_matrículas = Novas_matrículas.get()
-    global numero
-    numero = int(RESP_Novas_matrículas)
+    global Nova_matrícula
+    Nova_matrícula = int(RESP_Novas_matrículas)
     #=====================================#
 
     #========== DATA DA MATRÍCULA ========#
@@ -137,7 +137,7 @@ app.mainloop() # Abrir o aplicativo
 Novo_cadastrado = 0 # para função (LIMITE DE INSCRIÇÕES)
 time.sleep(10)
 while True:
-    if Quantidade_inscrições - Limite_inscrições == 0 or Quantidade_inscrições > Limite_inscrições:
+    if Quantidade_inscrições - Limite_inscrições == 0 or Quantidade_inscrições > Limite_inscrições or Novo_cadastrado == Nova_matrícula:
         break
     Funções.Esconder_tecla() #--------------------------------------------------------------------------------->>>>>>>>>>>>> ESCONDER TECLA
     #=========================== BUTÃO ADICIONAR ==================================#
@@ -233,7 +233,7 @@ while True:
     #================ TIPO DE CONTRATO ===================#
     pyautogui.press("tab")
     Funções.Tipo_de_Contarto() #----------------------------------------------------------------------------->>>>>>>>>>>>> TIPO DE CONTRATO
-    time.sleep(1) 
+    time.sleep(1)
     pyautogui.press("tab") # TECLA "tab"
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     Funções.Matrícula(data) #--------------------------------------------------------------------------------------->>>>>>>>>>>>> MATRÍCULA
@@ -302,6 +302,4 @@ Reiniciar_programa()
 F10_BOT() 
 #==========#
 
-# Verificar porque não ta parando na quantidade de iscritos que eu peço no loop
-# Copia e colar o TELEFONE
 # Resumir os comandos tipo as funções de "CEP"

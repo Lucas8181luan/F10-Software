@@ -26,10 +26,9 @@ def prencher_cpf():
 
 #================================ ACHAR CEP - F10 =========================================#
 def achar_cep():
-    pyautogui.press("Enter")
-    time.sleep(0.10)
-    for i in range(6):
+    for i in range(3):
         pyautogui.press("tab")
+    time.sleep(0.50)
 
 
 #================================== MARCAR "OK" ===========================================#
@@ -62,13 +61,13 @@ def apagar_CEP():
         pyautogui.press("Backspace")
 
 
-#================================= ESCOLHER CONTRATO ======================================#
+#================================ ESCOLHER CONTRATO =======================================#
 def Tipo_de_Contarto():
     Tipo_de_Contarto = "Bolsa"
     return pyautogui.write(Tipo_de_Contarto)
 
 
-#================================= ESCOLHER MATRÍCULA =====================================#
+#================================ ESCOLHER MATRÍCULA ======================================#
 def Matrícula(valor):
     data_do_usuário = valor
     for i in range(10):
@@ -76,19 +75,19 @@ def Matrícula(valor):
     return pyautogui.write(data_do_usuário)
 
 
-#================================== ESCOLHER EVENTO =======================================#
+#================================= ESCOLHER EVENTO ========================================#
 def Evento():
     Evento = "RIO+CURSOS"
     return pyautogui.write(Evento)
 
 
-#================================ ESCOLHER COORDENADOR ====================================#
+#=============================== ESCOLHER COORDENADOR =====================================#
 def Coordenador():
     Coordenador = "Rodrigo Drumond"
     return pyautogui.write(Coordenador)
 
 
-#=================================== ESCOLHER POLO ========================================#
+#================================== ESCOLHER POLO =========================================#
 def polo():
     for i in range(9):
         pyautogui.press("tab")
@@ -104,32 +103,32 @@ def polo():
     pyautogui.press("space")
 
 
-#================================== TURMA EM ABERTO =======================================#
+#================================= TURMA EM ABERTO ========================================#
 def turma_em_aberto():
     for i in range(8):
         pyautogui.hotkey('shift', 'tab')
     pyautogui.press("space")
 
 
-#================================== OPÇÕES DE CURSOS ======================================#
+#================================= OPÇÕES DE CURSOS =======================================#
 def Curso(valor):
     curso_do_usuário = valor
     return pyautogui.write(curso_do_usuário)
 
 
-#================================== BUTÃO PROXIMO - 1 =====================================#
+#================================= BUTÃO PROXIMO - 1 ======================================#
 def BUTÃO_PROXIMO_1():
     for i in range(10):
         pyautogui.press('tab')
 
 
-#================================== BUTÃO PROXIMO - 2 =====================================#
+#================================= BUTÃO PROXIMO - 2 ======================================#
 def BUTÃO_PROXIMO_2():
     for i in range(6):
         pyautogui.press('tab')
 
 
-#=================================== BUTÃO GRAVAR =========================================#
+#================================== BUTÃO GRAVAR ==========================================#
 def BUTÃO_GRAVAR():
     for i in range(8):
         pyautogui.press('tab')
@@ -137,7 +136,7 @@ def BUTÃO_GRAVAR():
     #pyautogui.press("Enter")
 
 
-#============================== VERIFICAR MENOR DE IDADE ==================================#
+#============================= VERIFICAR MENOR DE IDADE ===================================#
 def Verificar_menor_de_idade():
     time.sleep(2)
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -150,7 +149,7 @@ def Verificar_menor_de_idade():
         return False
 
 
-#============================ VERIFICAR COORDENADOR NO POLO ===============================#
+#========================== VERIFICAR COORDENADOR NO POLO =================================#
 def Verificar_coordenador_polo():
     time.sleep(8)
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -163,14 +162,14 @@ def Verificar_coordenador_polo():
         return False
 
 
-#============================== FECHAR PÁGINA DE CADASTRO" ================================#
+#============================ FECHAR PÁGINA DE CADASTRO" ==================================#
 def Fechar_página_de_cadastro():
     pyautogui.hotkey('Ctrl', 'tab') # Fechar página de cadastro
     time.sleep(0.20)
     pyautogui.hotkey('alt', 'o', 'c') # Voltar para a página de cadastro
 
 
-#================================ VOLTAR E MARCA "-18" ====================================#
+#=============================== VOLTAR E MARCA "-18" =====================================#
 def Marcar_menor_de_idade():
     time.sleep(3)
     pyautogui.hotkey('alt', 'tab') # Chrome
@@ -188,7 +187,7 @@ def Marcar_menor_de_idade():
     pyautogui.hotkey('alt', 'tab') # F10
 
 
-#================================= CONTA INSCRIÇÕES =======================================#
+#================================ CONTA INSCRIÇÕES ========================================#
 def Contar_inscrições(Contador, Valor_atual, Limite):
     Mais_uma_inscrição = Contador
     Ja_inscritos = Valor_atual
@@ -202,7 +201,7 @@ def Contar_inscrições(Contador, Valor_atual, Limite):
         pass
 
 
-#================================== VERIFICAR CPF =========================================#
+#================================= VERIFICAR CPF ==========================================#
 def Verificar_cpf():
     time.sleep(2)
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -215,7 +214,7 @@ def Verificar_cpf():
         pass
 
 
-#============================ VOLTAR E MARCA ERRO DE CPF ==================================#
+#=========================== VOLTAR E MARCA ERRO DE CPF ===================================#
 def Marca_erro_de_cpf():
     time.sleep(3)
     pyautogui.hotkey('alt', 'tab') # Chrome
@@ -233,7 +232,7 @@ def Marca_erro_de_cpf():
     pyautogui.hotkey('alt', 'tab') # F10
 
 
-#================================== VERIFICAR CEP =========================================#
+#================================= VERIFICAR CEP ==========================================#
 def Verificar_cep():
     time.sleep(2)
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -246,7 +245,7 @@ def Verificar_cep():
         return False
 
 
-#============================ VOLTAR E MARCA ERRO DE CEP ==================================#
+#=========================== VOLTAR E MARCA ERRO DE CEP ===================================#
 def Marca_erro_de_cep():
     time.sleep(3)
     pyautogui.hotkey('alt', 'tab') # Chrome
@@ -264,7 +263,7 @@ def Marca_erro_de_cep():
     pyautogui.hotkey('alt', 'tab') # F10
 
 
-#=============================== VERIFICAR TELEFONE =======================================#
+#============================== VERIFICAR TELEFONE ========================================#
 def Verificar_telefone():
     for i in range(4): 
         pyautogui.press("right") 
@@ -273,13 +272,28 @@ def Verificar_telefone():
     numero = pyperclip.paste()
     numero = numero.replace("-", "").replace(" ", "").replace("(", "").replace(")", "")
     Quantidades_de_digitos = len(numero)
+    time.sleep(1)
     if Quantidades_de_digitos == 11:
+        pyautogui.hotkey('alt', 'tab') # F10
+        time.sleep(1)
+        for i in range(4):
+            pyautogui.press("tab")
+        time.sleep(1)
+        for i in range(10):
+            pyautogui.press("right") # vai pro final da aba de telefone - f10
+        time.sleep(1)
+        for i in range(12):
+            pyautogui.press("Backspace") # apaga o telefone
+        time.sleep(1)
+        pyautogui.hotkey('ctrl', 'v') # colar o "TELEFONE"
+        time.sleep(1)
+        pyautogui.hotkey('alt', 'tab') # Chrome
         return True
     else:
         return False
 
-
-#========================= VOLTAR E MARCA ERRO DE TEELFONE ================================#
+                
+#======================== VOLTAR E MARCA ERRO DE TEELFONE =================================#
 def Marca_erro_telefone():
     time.sleep(0.20)
     for i in range(6): 
@@ -290,12 +304,12 @@ def Marca_erro_telefone():
     for i in range(2): 
         pyautogui.press("right")
         time.sleep(0.20)
-    pyautogui.press("down")
+    pyautogui.press("down")                                     
     time.sleep(0.20)
     pyautogui.hotkey('alt', 'tab') # F10
 
 
-#============================== CADASTRO REPETIDO =========================================#
+#============================= CADASTRO REPETIDO ==========================================#
 def Cadastro_repetido():
     for i in range(2): 
         pyautogui.press("left")
@@ -308,12 +322,7 @@ def Cadastro_repetido():
         pass
 
 
-#============================ COPIA E COLAR TELEFONE ======================================#
-def Copia_telefone():
-    print()
-
-
-#================================ ESCONDER MAUSE ==========================================#
+#============================== ESCONDER MAUSE ============================================#
 def Esconder_tecla():
     screen_width, screen_height = pyautogui.size() # Obtém a resolução da tela (largura e altura)
     pyautogui.moveTo(screen_width // 2, screen_height // 2) # Move o cursor para o centro da tela
