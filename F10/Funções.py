@@ -112,8 +112,9 @@ def turma_em_aberto():
 
 #================================= OPÇÕES DE CURSOS =======================================#
 def Curso(valor):
-    curso_do_usuário = valor
-    return pyautogui.write(curso_do_usuário)
+    pyperclip.copy(valor) # Copia o valor para a área de transferência
+    pyautogui.hotkey('ctrl', 'v')
+    return None
 
 
 #================================= BUTÃO PROXIMO - 1 ======================================#
@@ -132,8 +133,7 @@ def BUTÃO_PROXIMO_2():
 def BUTÃO_GRAVAR():
     for i in range(8):
         pyautogui.press('tab')
-        time.sleep(3) #=============================== EXCLUIR
-    #pyautogui.press("Enter")
+    pyautogui.press("Enter")
 
 
 #============================= VERIFICAR MENOR DE IDADE ===================================#
@@ -273,7 +273,7 @@ def Verificar_telefone():
     numero = numero.replace("-", "").replace(" ", "").replace("(", "").replace(")", "")
     Quantidades_de_digitos = len(numero)
     time.sleep(1)
-    if Quantidades_de_digitos == 11:
+    if Quantidades_de_digitos == 11 or Quantidades_de_digitos == 12:
         pyautogui.hotkey('alt', 'tab') # F10
         time.sleep(1)
         for i in range(4):

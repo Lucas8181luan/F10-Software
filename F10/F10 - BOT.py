@@ -87,7 +87,7 @@ Data_da_matrícula.pack(pady=10) # posição
 #===================================== INPUT - CURSOS ============================================#
 texto_CURSOS = tk.Label(app, text="ESCOLHA O CURSO", bg="red", fg="white", font=("Arial", 14, "bold")) # text
 texto_CURSOS.pack(pady=10) # posição texto
-CURSOS = ttk.Combobox(app, values=["EAD - Agente de Defesa Ambiental", "EAD - Assistente de Logistica", "EAD - Estoquista", "AUXILIAR ADMINISTRATIVO", "PORTEIRO", "OPERADOR DE CAIXA", "RECEPCIONISTA", "ATENDENTE DE FARMÁCIA", "INFORMÁTICA"], width=52)
+CURSOS = ttk.Combobox(app, values=["EAD - Agente de Defesa Ambiental", "EAD - Assistente de Logistica", "EAD - Estoquista", "Híbrido - Auxiliar Administrativo", "Híbrido - Designer de Sombrancelhas", "Híbrido - Maquiagem", "Híbrido - Operador de Caixa", "Híbrido - Porteiro", "Híbrido - Recepcionista", "Presencial - Cuidador de Idoso", "Presencial - Informática"], width=52)
 CURSOS.pack(pady=10) # posição
 CURSOS.set("Selecione uma opção")
 #=================================================================================================#
@@ -186,7 +186,7 @@ while True:
         continue
     #========================= COPIA E COLAR "CEP" =====================================#
     Funções.copia_CEP() #------------------------------------------------------------------------------------------->>>>>>>>>>>>> COPIA CEP
-    time.sleep(1)
+    time.sleep(2)
     pyautogui.hotkey('ctrl', 'c') # copia o "CEP"
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # F10
@@ -246,7 +246,7 @@ while True:
     pyautogui.press("tab") # TECLA "tab"
     #================= OPÇÃO - CURSO =====================#
     Funções.Curso(curso) #---------------------------------------------------------------------------------------------->>>>>>>>>>>>> CURSO
-    time.sleep(2)
+    time.sleep(5)
     pyautogui.press("tab") # TECLA "tab"
     #=============== OPÇÃO - COORDENADOR =================#
     Funções.Coordenador() #--------------------------------------------------------------------------------------->>>>>>>>>>>>> COORDENADOR
