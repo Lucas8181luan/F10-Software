@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-import pyautogui 
+import pyautogui
 import time
 import pytesseract
 import Funções
@@ -52,16 +52,16 @@ app.attributes("-fullscreen", True) # abri a janela em tela cheia
 
 #========================================== TITULO ===============================================#
 TITULO = tk.Label(app, text="F10 - BOT", bg="blue" ,fg="White", font=("Arial", 80, "bold")) # texto
-TITULO.pack(pady=90) # posição text
+TITULO.pack(pady=25) # posição text
 #=================================================================================================#
 
 #================================= BORDA - WHITE =================================#
-FUNDO_BLACK = tk.Label(app, text=".", width=76, height=34, bg="White") # tamamnho do fundo
+FUNDO_BLACK = tk.Label(app, text=".", width=86, height=39, bg="White") # tamamnho do fundo
 FUNDO_BLACK.place(relx=0.5, rely=0.6, anchor="center") # centralizar o fundo
 #=================================================================================#
 
 #=================================== FUNDO - RED =================================#
-FUNDO_RED = tk.Label(app, text="", width=70, height=32, bg="red") # tamamnho do fundo
+FUNDO_RED = tk.Label(app, text="", width=80, height=37, bg="red") # tamamnho do fundo
 FUNDO_RED.place(relx=0.5, rely=0.6, anchor="center") # centralizar o fundo
 #=================================================================================#
 
