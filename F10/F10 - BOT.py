@@ -150,13 +150,13 @@ while True:
     Resultado_verificar_repetido = Funções.Cadastro_repetido() #-------------------------------------------->>>>>>>>>>>>> CADASTRO REPETIDO
     if Resultado_verificar_repetido == True:
         time.sleep(1)
-        for i in range(2): 
+        for i in range(): 
             pyautogui.press("right")
         time.sleep(1)
         Funções.proximo_cpf() #--------------------------------------------------------------------------------->>>>>>>>>>>>> PROXIMO "CPF"
     else:
         time.sleep(1)
-        for i in range(2): 
+        for i in range(2):
             pyautogui.press("right")
         time.sleep(1)
     #===================================================================================#
@@ -164,71 +164,14 @@ while True:
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(5)
-    Funções.prencher_cpf() #------------------------------------------------------------------------------>>>>>>>>>>>>> PRENCHER CPF - F10
-    time.sleep(2)
+    pyautogui.press("tab")
+    time.sleep(1)
     pyautogui.hotkey('ctrl', 'v') # colar o "CPF" copiado
     time.sleep(1)
     pyautogui.press("Enter")
-    time.sleep(1)
-    pyautogui.hotkey('alt', 'tab') # Chrome
-    time.sleep(2)
-    #========================= VERIFICAR TELEFONE ======================================#
-    Resultado_erro_telefone = Funções.Verificar_telefone() #----------------------------------------------->>>>>>>>>>>>> VERIFICAR TELEFONE
-    if Resultado_erro_telefone == False:
-        time.sleep(1)
-        pyautogui.hotkey('alt', 'tab') # F10
-        time.sleep(1)
-        Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
-        time.sleep(1)
-        pyautogui.hotkey('alt', 'tab') # Chrome
-        time.sleep(1)
-        Funções.Marca_erro_telefone() #---------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE TELEFONE
-        continue
-    #========================= COPIA E COLAR "CEP" =====================================#
-    Funções.copia_CEP() #------------------------------------------------------------------------------------------->>>>>>>>>>>>> COPIA CEP
-    time.sleep(2)
-    pyautogui.hotkey('ctrl', 'c') # copia o "CEP"
-    time.sleep(1)
-    pyautogui.hotkey('alt', 'tab') # F10
-    time.sleep(2)
-    Funções.achar_cep() #------------------------------------------------------------------------------------->>>>>>>>>>>>> ACHAR CEP - F10
-    time.sleep(1)
-    Funções.apagar_CEP() #--------------------------------------------------------------------------------->>>>>>>>>>>>> APAGAR E COLAR CEP
-    time.sleep(1)
-    pyautogui.hotkey('ctrl', 'v') # colar o "CEP"
-    time.sleep(1)
     #============================ BUTÃO PROXIMO - 1 ====================================#
-    Funções.BUTÃO_PROXIMO_1() #------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO PROXIMO 1
-    time.sleep(2)
-    #============================= VERIFICAR CPF =======================================#
-    Resultado_erro_cpf = Funções.Verificar_cpf() #--------------------------------------------------------------->>>>>>>>>>>>> VERIFICA CPF
-    if Resultado_erro_cpf == True:
-        pyautogui.press("space") # clica no butão "OK"
-        time.sleep(1)
-        Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
-        time.sleep(1)
-        Funções.Marca_erro_de_cpf() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CPF
-        time.sleep(2)
-        continue
-    #============================== VERIFICAR CEP ======================================#
-    Resultado_erro_cep = Funções.Verificar_cep()
-    if Resultado_erro_cep == True:
-        pyautogui.press("space") # clica no butão "OK"
-        time.sleep(1)
-        Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
-        time.sleep(1)
-        Funções.Marca_erro_de_cep() #----------------------------------------------------------------------->>>>>>>>>>>>> MARCA ERRO DE CPF
-        time.sleep(2)
-        continue
-    #======================== VERIFICAR MENOR DE IDADE =================================#
-    Resultado_menor_de_idade = Funções.Verificar_menor_de_idade() #------------------------------>>>>>>>>>>>>> VERIFICA SE E MENOR DE IDADE
-    time.sleep(1)
-    if Resultado_menor_de_idade == True:
-        Funções.Fechar_página_de_cadastro() #------------------------------------------------------->>>>>>>>>>>>> FECHAR PÁGINA DE CADASTRO
-        time.sleep(1)
-        Funções.Marcar_menor_de_idade() #-------------------------------------------------------------->>>>>>>>>>>>> MARCAR MENOR DE IDADES
-        time.sleep(2)
-        continue
+    for i in range(16):
+        pyautogui.press('tab')
     #================================ PARTE - 2 ========================================#
     #================ TIPO DE CONTRATO ===================#
     pyautogui.press("tab")
@@ -275,7 +218,9 @@ while True:
     #============================================== EXCEL ====================================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(3) 
-    Funções.marcar_ok() #-------------------------------------------------------------------------------------------->>>>>>>>>>>>> BUTÃO OK
+    for i in range(3): 
+        pyautogui.press("right")
+    pyautogui.press("space")
     time.sleep(2)
     Funções.voltar_para_cpf() #---------------------------------------------------------------------------->>>>>>>>>>>>> VOLTA PARA O "CPF"
     time.sleep(2) 
@@ -301,5 +246,3 @@ Reiniciar_programa()
 #== Play ==#
 F10_BOT() 
 #==========#
-
-# Resumir os comandos tipo as funções de "CEP"

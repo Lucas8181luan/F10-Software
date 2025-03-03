@@ -51,7 +51,7 @@ def proximo_cpf():
 
 #=================================== COPIA "CEP" ==========================================#
 def copia_CEP():
-    for i in range(1): 
+    for i in range(2): 
         pyautogui.press("right") 
 
 
