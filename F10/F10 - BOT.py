@@ -51,7 +51,7 @@ app.attributes("-fullscreen", True) # abri a janela em tela cheia
 #===============================#
 
 #========================================== TITULO ===============================================#
-TITULO = tk.Label(app, text="F10 - BOT", bg="blue" ,fg="White", font=("Arial", 80, "bold")) # texto
+TITULO = tk.Label(app, text="F10 - BOT", bg="black" ,fg="White", font=("Arial", 80, "bold")) # texto
 TITULO.pack(pady=25) # posição text
 #=================================================================================================#
 
@@ -60,14 +60,14 @@ FUNDO_BLACK = tk.Label(app, text=".", width=86, height=39, bg="White") # tamamnh
 FUNDO_BLACK.place(relx=0.5, rely=0.6, anchor="center") # centralizar o fundo
 #=================================================================================#
 
-#=================================== FUNDO - RED =================================#
-FUNDO_RED = tk.Label(app, text="", width=80, height=37, bg="red") # tamamnho do fundo
+#=================================== FUNDO - BLACK =================================#
+FUNDO_RED = tk.Label(app, text="", width=80, height=37, bg="black") # tamamnho do fundo
 FUNDO_RED.place(relx=0.5, rely=0.6, anchor="center") # centralizar o fundo
 #=================================================================================#
 
 #=================================================================================================#
 #============================== INPUT - NOVAS MATRÍCULAS =========================================#
-texto_Novas_matrículas = tk.Label(app, text="NOVAS MATRÍCULAS", bg="red", fg="white", font=("Arial", 14, "bold")) # texto
+texto_Novas_matrículas = tk.Label(app, text="NOVAS MATRÍCULAS", bg="black", fg="white", font=("Arial", 14, "bold")) # texto
 texto_Novas_matrículas.pack(pady=10) # posição texto
 Novas_matrículas = tk.Entry(app, width=55)
 Novas_matrículas.pack(pady=10) # posição 
@@ -76,7 +76,7 @@ Novas_matrículas.pack(pady=10) # posição
 
 #=================================================================================================#
 #=============================== INPUT - DATA DA MATRÍCULA =======================================#
-texto_Data_da_matrícula = tk.Label(app, text="DATA DA MATRÍCULA", bg="red", fg="white", font=("Arial", 14, "bold")) # texto
+texto_Data_da_matrícula = tk.Label(app, text="DATA DA MATRÍCULA", bg="black", fg="white", font=("Arial", 14, "bold")) # texto
 texto_Data_da_matrícula.pack(pady=10) # posição texto
 Data_da_matrícula = tk.Entry(app, width=55)
 Data_da_matrícula.pack(pady=10) # posição
@@ -85,7 +85,7 @@ Data_da_matrícula.pack(pady=10) # posição
 
 #=================================================================================================#
 #===================================== INPUT - CURSOS ============================================#
-texto_CURSOS = tk.Label(app, text="ESCOLHA O CURSO", bg="red", fg="white", font=("Arial", 14, "bold")) # text
+texto_CURSOS = tk.Label(app, text="ESCOLHA O CURSO", bg="black", fg="white", font=("Arial", 14, "bold")) # text
 texto_CURSOS.pack(pady=10) # posição texto
 CURSOS = ttk.Combobox(app, values=["EAD - Agente de Defesa Ambiental", "EAD - Assistente de Logistica", "EAD - Estoquista", "Híbrido - Auxiliar Administrativo", "Híbrido - Designer de Sombrancelhas", "Híbrido - Maquiagem", "Híbrido - Operador de Caixa", "Híbrido - Porteiro", "Híbrido - Recepcionista", "Presencial - Cuidador de Idoso", "Presencial - Informática"], width=52)
 CURSOS.pack(pady=10) # posição
@@ -95,7 +95,7 @@ CURSOS.set("Selecione uma opção")
 
 #=================================================================================================#
 #============================ INPUT - QUANTIDADE ATUAL DE INCRIÇÕES ==============================#
-texto_Quantidade_atual_inscrições = tk.Label(app, text="QUANTIDADE ATUAL DE INSCRIÇÕES", bg="red", fg="white", font=("Arial", 14, "bold")) # texto
+texto_Quantidade_atual_inscrições = tk.Label(app, text="QUANTIDADE ATUAL DE INSCRIÇÕES", bg="black", fg="white", font=("Arial", 14, "bold")) # texto
 texto_Quantidade_atual_inscrições.pack(pady=10) # posição do texto
 Quantidade_atual_inscrições = tk.Entry(app, width=55)
 Quantidade_atual_inscrições.pack(pady=10) # posição
@@ -104,7 +104,7 @@ Quantidade_atual_inscrições.pack(pady=10) # posição
 
 #=================================================================================================#
 #================================ INPUT - LIMITE DE INSCRIÇÕES ===================================#
-texto_Limite_de_inscrições = tk.Label(app, text="LIMITE DE INSCRIÇÕES", bg="red", fg="white", font=("Arial", 14, "bold")) # texto
+texto_Limite_de_inscrições = tk.Label(app, text="LIMITE DE INSCRIÇÕES", bg="black", fg="white", font=("Arial", 14, "bold")) # texto
 texto_Limite_de_inscrições.pack(pady=10) # posição do texto
 Limite_de_inscrições = tk.Entry(app, width=55)
 Limite_de_inscrições.pack(pady=10) # posição
@@ -123,7 +123,7 @@ button_fechar_programa.pack(pady=5) # posição
 
 #====================================================================================================================================#
 #============================================================== STYLE ===============================================================#
-app.config(bg="blue") # cor de fundo
+app.config(bg="black") # cor de fundo
 #====================================================================================================================================#
 #====================================================================================================================================#
 
@@ -153,13 +153,13 @@ while True:
         for i in range(): 
             pyautogui.press("right")
         time.sleep(1)
-        Funções.proximo_cpf() #--------------------------------------------------------------------------------->>>>>>>>>>>>> PROXIMO "CPF"
+        pyautogui.press("down")
     else:
-        time.sleep(1)
         for i in range(2):
             pyautogui.press("right")
         time.sleep(1)
     #===================================================================================#
+    time.sleep(1)
     pyautogui.hotkey('ctrl', 'c') # copia o "CPF"
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # F10
@@ -222,10 +222,11 @@ while True:
         pyautogui.press("right")
     pyautogui.press("space")
     time.sleep(2)
-    Funções.voltar_para_cpf() #---------------------------------------------------------------------------->>>>>>>>>>>>> VOLTA PARA O "CPF"
-    time.sleep(2) 
-    Funções.proximo_cpf() #------------------------------------------------------------------------>>>>>>>>>>>>> PASSA PARA O PROXIMO "CPF"
-    time.sleep(3)
+    pyautogui.press("down")
+    for i in range(3):
+        time.sleep(1)
+        pyautogui.press("left") # Voltar para o proximo CPF
+    time.sleep(2)
     pyautogui.hotkey('alt', 'tab') # F10
     time.sleep(5)
     #======================================== VERIFICAR LIMITE ===============================================#
