@@ -4,7 +4,7 @@ import pyperclip
 
 time.sleep(5)
 
-for i in range(9):
+for i in range(32):
     #=========================== BUTÃO ADICIONAR ==================================#
     pyautogui.hotkey('Alt', 'o', 'i')  
     time.sleep(2)
@@ -40,7 +40,7 @@ for i in range(9):
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     #================================ ESCOLHER MATRÍCULA ======================================#
     def Matrícula():
-        data_do_usuário = '26/05/2025'
+        data_do_usuário = '01/06/2025'
         for i in range(10):
             pyautogui.press("Backspace")
         return pyautogui.write(data_do_usuário)
@@ -61,7 +61,7 @@ for i in range(9):
         pyperclip.copy(valor1) # Copia o valor para a área de transferência
         pyautogui.hotkey('ctrl', 'v')
     Curso(valor1)
-    time.sleep(5)
+    time.sleep(1)
     pyautogui.press("tab") # TECLA "tab"
     #=============== OPÇÃO - ADIMINISTRADO =================#
     def adm():
