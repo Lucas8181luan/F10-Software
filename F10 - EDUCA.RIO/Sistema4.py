@@ -40,7 +40,7 @@ for i in range(32):
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     #================================ ESCOLHER MATRÍCULA ======================================#
     def Matrícula():
-        data_do_usuário = '07/06/2025'
+        data_do_usuário = '10/06/2025'
         for i in range(10):
             pyautogui.press("Backspace")
         return pyautogui.write(data_do_usuário)
@@ -59,7 +59,20 @@ for i in range(32):
     # Educa.Rio: Presencial - Auxiliar de Cozinha
     # Educa.Rio: Híbrido - Auxiliar Administrativo
     # Educa.Rio: Híbrido - Cuidador de Idosos
-    valor1 = 'Educa.Rio: Híbrido - Cuidador de Idosos'
+    # Educa.Rio: Híbrido - Designer de Sombrancelhas
+    # Educa.Rio: Híbrido - Instalador de Carregador Veícular
+    # Educa.Rio: Híbrido - Maquiagem
+    # Educa.Rio: Híbrido - Recepcionista
+    # Educa.Rio: Híbrido - Operador de Caixa
+    # Educa.Rio: Híbrido - Porteiro
+    # Educa.Rio: EAD - Agente de Defesa Ambiental
+    # Educa.Rio: EAD - Assistente de Logistica
+    # Educa.Rio: EAD - Estoquista
+    # Educa.Rio: Híbrido - Atendente de Farmácia
+    #Educa.Rio: Híbrido - Instalador de Fotovoltaico
+    # Educa.Rio: Presencial - Cumin
+    # Educa.Rio: Presencial - Garçom
+    valor1 = 'Educa.Rio: Híbrido - Designer de Sombrancelhas'
     def Curso(valor1):
         pyperclip.copy(valor1) # Copia o valor para a área de transferência
         pyautogui.hotkey('ctrl', 'v')

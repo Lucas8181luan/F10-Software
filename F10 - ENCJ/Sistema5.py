@@ -40,7 +40,7 @@ for i in range(32):
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     #================================ ESCOLHER MATRÍCULA ======================================#
     def Matrícula():
-        data_do_usuário = '01/06/2025'
+        data_do_usuário = '13/06/2025'
         for i in range(10):
             pyautogui.press("Backspace")
         return pyautogui.write(data_do_usuário)
