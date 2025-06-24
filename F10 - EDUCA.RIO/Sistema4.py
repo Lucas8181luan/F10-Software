@@ -11,14 +11,24 @@ for i in range(32):
     #============================= ABRIR EXCEL ====================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(2)
+    #============================= COPIA CURSO ====================================#
+    for i in range(3):
+        pyautogui.press("left")
+    time.sleep(1)   
+    for i in range(2):
+        x = pyautogui.hotkey('ctrl', 'c') 
+    time.sleep(1)
+    x = pyperclip.paste()
+    for i in range(3):
+        pyautogui.press("Right")
     #============================== COPIA CPF =====================================#
     for i in range(2):
         pyautogui.hotkey('ctrl', 'c') # copia o "CPF"
         time.sleep(1)
     time.sleep(1)
     pyautogui.hotkey('alt', 'tab') # F10
-    time.sleep(2)
-    pyautogui.press("tab")
+    time.sleep(2)     
+    pyautogui.press("tab") 
     time.sleep(2)
     pyautogui.hotkey('ctrl', 'v') # colar o "CPF" copiado
     time.sleep(2)
@@ -40,11 +50,11 @@ for i in range(32):
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     #================================ ESCOLHER MATRÍCULA ======================================#
     def Matrícula():
-        data_do_usuário = '11/06/2025'
+        data_do_usuário = '23/06/2025'
         for i in range(10):
             pyautogui.press("Backspace")
         return pyautogui.write(data_do_usuário)
-    Matrícula()
+    Matrícula() 
     time.sleep(1)
     pyautogui.press("tab")
     pyautogui.press("tab") 
@@ -56,26 +66,47 @@ for i in range(32):
     time.sleep(1)
     pyautogui.press("tab") # TECLA "tab"
     #================= OPÇÃO - CURSO =====================#
-    # Educa.Rio: Presencial - Auxiliar de Cozinha
-    # Educa.Rio: Híbrido - Auxiliar Administrativo
-    # Educa.Rio: Híbrido - Cuidador de Idosos
-    # Educa.Rio: Híbrido - Designer de Sombrancelhas
-    # Educa.Rio: Híbrido - Instalador de Carregador Veícular
-    # Educa.Rio: Híbrido - Maquiagem
-    # Educa.Rio: Híbrido - Recepcionista
-    # Educa.Rio: Híbrido - Operador de Caixa
-    # Educa.Rio: Híbrido - Porteiro
-    # Educa.Rio: EAD - Agente de Defesa Ambiental
-    # Educa.Rio: EAD - Assistente de Logistica
-    # Educa.Rio: EAD - Estoquista
-    # Educa.Rio: Híbrido - Atendente de Farmácia
-    # Educa.Rio: Híbrido - Instalador de Fotovoltaico
-    # Educa.Rio: Presencial - Cumin
-    # Educa.Rio: Presencial - Garçom
-    valor1 = 'Educa.Rio: EAD - Agente de Defesa Ambiental'
-    def Curso(valor1):
-        pyperclip.copy(valor1) # Copia o valor para a área de transferência
-        pyautogui.hotkey('ctrl', 'v')
+    valor1 = x
+
+    def Curso(v):
+        valor = str(v)
+        print(valor)
+        print(valor)
+        print(valor)
+        if valor == "EAD - AGENTE DE DEFESA AMBIENTAL":
+            return pyautogui.write("Educa.Rio: EAD - Agente de Defesa Ambiental")
+        if valor == "EAD - ASSISTENTE DE LOGÍSTICA":
+            return pyautogui.write("Educa.Rio: EAD - Assistente de Logistica")
+        if valor == "EAD - ESTOQUISTA":
+            return pyautogui.write("Educa.Rio: EAD - Estoquista")
+        if valor == "HÍBRIDO - AUXILIAR ADMINISTRATIVO":
+            return pyautogui.write("Educa.Rio: Hibrido - Auxiliar Administrativo")
+        if valor == "HÍBRIDO - AUXILIAR DE COZINHA (BOTECO)" or valor == "PRESENCIAL - AUXILIAR DE COZINHA":
+            return pyautogui.write("Educa.Rio: Presencial - Auxiliar de Cozinha")
+        if valor == "HÍBRIDO - CUIDADOR DE IDOSO":
+            return pyautogui.write("Educa.Rio: Hibrido - Cuidador de Idosos")
+        if valor == "HÍBRIDO - DESIGNER DE SOBRANCELHA":
+            return pyautogui.write("Educa.Rio: Hibrido - Designer de Sombrancelhas")
+        if valor == "HÍBRIDO - INSTALADOR DE CARRO  ELÉTRICO":
+            return pyautogui.write("Educa.Rio: Hibrido - Instalador de Carregador Veicular")
+        if valor == "HÍBRIDO - MAQUIAGEM":
+            return pyautogui.write("Educa.Rio: Hibrido - Maquiagem") 
+        if valor == "HÍBRIDO - RECEPCIONISTA":
+            return pyautogui.write("Educa.Rio: Hibrido - Recepcionista")
+        if valor == "HÍBRIDO - OPERADOR DE CAIXA":
+            return pyautogui.write("Educa.Rio: Hibrido - Operador de Caixa")
+        if valor == "HÍBRIDO - PORTEIRO":
+            return pyautogui.write("Educa.Rio: Hibrido - Porteiro")
+        if valor == "HÍBRIDO - ATENDIMENTO DE FARMÁCIA":
+            return pyautogui.write("Educa.Rio: Hibrido - Atendente de Farmacia")
+        if valor == "HÍBRIDO - INSTALADOR FOTOVOLTAICO":
+            return pyautogui.write("Educa.Rio: Hibrido - Instalador de Fotovoltaico")
+        if valor == "HÍBRIDO - INFORMÁTICA":
+            return pyautogui.write("Educa.Rio: Hibrido - Informatica")
+        if valor == "PRESENCIAL - CUMIN":
+            return pyautogui.write("Educa.Rio: Presencial - Cumin")
+        if valor == "PRESENCIAL - GARÇOM":
+            return pyautogui.write("Educa.Rio: Presencial - Garcom")
     Curso(valor1)
     time.sleep(1)
     pyautogui.press("tab") # TECLA "tab"
