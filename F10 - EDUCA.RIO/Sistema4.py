@@ -11,16 +11,6 @@ for i in range(32):
     #============================= ABRIR EXCEL ====================================#
     pyautogui.hotkey('alt', 'tab') # Chrome
     time.sleep(1)
-    #============================= COPIA CURSO ====================================#
-    for i in range(3):
-        pyautogui.press("left")
-    time.sleep(1)   
-    for i in range(2):
-        x = pyautogui.hotkey('ctrl', 'c') 
-    time.sleep(1)
-    x = pyperclip.paste()
-    for i in range(3):
-        pyautogui.press("Right")
     #============================== COPIA CPF =====================================#
     for i in range(2):
         pyautogui.hotkey('ctrl', 'c') # copia o "CPF"
@@ -46,16 +36,16 @@ for i in range(32):
     time.sleep(4)
     Tipo_de_Contarto()
     pyautogui.press("tab")
-    time.sleep(0.5)
+    time.sleep(0.10)
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     #================================ ESCOLHER MATRÍCULA ======================================#
     def Matrícula():
-        data_do_usuário = '23/06/2025'
+        data_do_usuário = '24/06/2025'
         for i in range(10):
             pyautogui.press("Backspace")
         return pyautogui.write(data_do_usuário)
     Matrícula() 
-    time.sleep(0.5)
+    time.sleep(0.10)
     pyautogui.press("tab")
     pyautogui.press("tab") 
     #================ OPÇÃO - EVENTO =====================#
@@ -63,16 +53,31 @@ for i in range(32):
         Evento = "1 - Educa.Rio"
         return pyautogui.write(Evento)
     Evento()
-    time.sleep(0.5)
+    time.sleep(0.10)
     pyautogui.press("tab") # TECLA "tab"
     #================= OPÇÃO - CURSO =====================#
+    #======== COPIA CURSO =========#
+    pyautogui.hotkey('alt', 'tab') # Chrome
+    for i in range(2):
+        pyautogui.press("left")
+    time.sleep(0.10)
+    for i in range(2):
+        pyautogui.hotkey('ctrl', 'c') # copia o "Curso"
+    x = pyperclip.paste()
+    if x == "FALSE":
+        pyautogui.press("left")
+        pyautogui.hotkey('ctrl', 'c') # copia o "Curso"
+        x = pyperclip.paste()
+    time.sleep(0.10)
+    for i in range(2):
+        pyautogui.press("Right")
+    pyautogui.hotkey('alt', 'tab') # F10
+    time.sleep(0.10)
     valor1 = x
-
     def Curso(v):
         valor = str(v)
         print(valor)
-        print(valor)
-        print(valor)
+        pyautogui.press("space")
         if valor == "EAD - AGENTE DE DEFESA AMBIENTAL":
             return pyautogui.write("Educa.Rio: EAD - Agente de Defesa Ambiental")
         if valor == "EAD - ASSISTENTE DE LOGÍSTICA":
@@ -108,21 +113,21 @@ for i in range(32):
         if valor == "PRESENCIAL - GARÇOM":
             return pyautogui.write("Educa.Rio: Presencial - Garcom")
     Curso(valor1)
-    time.sleep(0.5)
+    time.sleep(0.10)
     pyautogui.press("tab") # TECLA "tab"
     #=============== OPÇÃO - ADIMINISTRADO =================#
     def adm():
         adm = "Lucas Luan Pereira Vieira"
         return pyautogui.write(adm)
     adm()
-    time.sleep(0.5)
+    time.sleep(0.10)
     pyautogui.press("tab") # TECLA "tab"
     #=============== OPÇÃO - COORDENADOR =================#
     def Coordenador():
         Coordenador = "Marcus Vinicius Coppola Souto"
         return pyautogui.write(Coordenador)
     Coordenador()
-    time.sleep(0.5)
+    time.sleep(0.10)
     #============================ BUTÃO PROXIMO - 2 ====================================#
     def BUTÃO_PROXIMO_2():
         for i in range(5):
@@ -136,8 +141,7 @@ for i in range(32):
             pyautogui.press("tab")
         Polo = "RJ - Educa.Rio"
         pyautogui.write(Polo)
-        time.sleep(1)
-    time.sleep(0.5) 
+    time.sleep(0.10) 
     polo()                          
     #============================ BUTÃO GRAVAR ====================================# 
     def BUTÃO_GRAVAR():
