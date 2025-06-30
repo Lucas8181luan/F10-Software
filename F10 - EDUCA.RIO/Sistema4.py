@@ -25,10 +25,10 @@ for i in range(32):
     pyautogui.press("Enter")
     time.sleep(1)
     #============================ BUTÃO PROXIMO - 1 ====================================#
-    for i in range(19):
+    for i in range(17):
         pyautogui.press('tab')
     time.sleep(2)
-#================================ PARTE - 2 ========================================#
+    #================================ PARTE - 2 ========================================#
     #================ TIPO DE CONTRATO ===================#
     def Tipo_de_Contarto():
         Tipo_de_Contarto = "Bolsa"
@@ -40,7 +40,7 @@ for i in range(32):
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     #================================ ESCOLHER MATRÍCULA ======================================#
     def Matrícula():
-        data_do_usuário = '24/06/2025'
+        data_do_usuário = '27/06/2025'
         for i in range(10):
             pyautogui.press("Backspace")
         return pyautogui.write(data_do_usuário)
