@@ -19,12 +19,12 @@ for i in range(32):
     time.sleep(1)
     pyautogui.press("tab")
     time.sleep(0.30)
-    pyautogui.hotkey('ctrl', 'v') # colar o "CPF" copiado
+    pyautogui.hotkey('ctrl', 'v') # colar o "CPF" copiado   Lucas Luan Pereira Vieira
     time.sleep(0.30)
     pyautogui.press("Enter")
     time.sleep(0.30)
     #============================ BUTÃO PROXIMO - 1 ====================================#
-    for i in range(19):
+    for i in range(17):
         pyautogui.press('tab')
     time.sleep(1)
 #================================ PARTE - 2 ========================================#
@@ -39,7 +39,7 @@ for i in range(32):
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     #================================ ESCOLHER MATRÍCULA ======================================#
     def Matrícula():
-        data_do_usuário = '24/06/2025'
+        data_do_usuário = '26/06/2025'
         for i in range(10):
             pyautogui.press("Backspace")
         return pyautogui.write(data_do_usuário)
