@@ -5,7 +5,7 @@ import pyperclip
 time.sleep(5)
 
 for i in range(32):
-    #=========================== BUTÃO ADICIONAR ==================================#
+    #=========================== BUTÃO ADICIONAR ==================================#                                                                Bolsa  
     pyautogui.hotkey('Alt', 'o', 'i') 
     time.sleep(0.30)
     #============================= ABRIR EXCEL ====================================#
@@ -19,7 +19,7 @@ for i in range(32):
     time.sleep(1)
     pyautogui.press("tab")
     time.sleep(0.30)
-    pyautogui.hotkey('ctrl', 'v') # colar o "CPF" copiado   Lucas Luan Pereira Vieira
+    pyautogui.hotkey('ctrl', 'v') # colar o "CPF"
     time.sleep(0.30)
     pyautogui.press("Enter")
     time.sleep(0.30)
@@ -27,7 +27,7 @@ for i in range(32):
     for i in range(17):
         pyautogui.press('tab')
     time.sleep(1)
-#================================ PARTE - 2 ========================================#
+    #=============================== PARTE - 2 =========================================#
     #================ TIPO DE CONTRATO ===================#
     def Tipo_de_Contarto():
         Tipo_de_Contarto = "Bolsa"
@@ -39,7 +39,7 @@ for i in range(32):
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     #================================ ESCOLHER MATRÍCULA ======================================#
     def Matrícula():
-        data_do_usuário = '26/06/2025'
+        data_do_usuário = '24/07/2025'
         for i in range(10):
             pyautogui.press("Backspace")
         return pyautogui.write(data_do_usuário)

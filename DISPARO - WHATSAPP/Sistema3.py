@@ -29,4 +29,3 @@ for i in range(40):
     time.sleep(2)
 
     time.sleep(30)
-    

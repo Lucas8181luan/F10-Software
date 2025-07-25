@@ -3,7 +3,33 @@ import time
 import pyperclip
 
 time.sleep(5)
-
+#=========================================================#
+#=============== PREPARATORIO DE AMBIENTE ================#
+#=========================================================#
+pyautogui.press("win")
+time.sleep(1)
+pyautogui.write("chrome")
+time.sleep
+pyautogui.press("Enter")
+time.sleep(1)
+pyautogui.press("win")
+time.sleep(1)
+pyautogui.write("F10")
+time.sleep(1)
+pyautogui.press("Enter")
+time.sleep(1)
+x = pyperclip.copy("Lucas.123")
+pyperclip.paste()
+time.sleep(1)
+pyautogui.hotkey("ctrl", "v")
+time.sleep(1)
+pyautogui.press("Enter")
+time.sleep(1)
+pyautogui.hotkey("Alt", "o", "c")
+time.sleep(4)
+#=========================================================#
+#====================== EXECUÇÃO =========================#
+#=========================================================#
 for i in range(32):
     #=========================== BUTÃO ADICIONAR ==================================#
     pyautogui.hotkey('Alt', 'o', 'i')  
@@ -39,11 +65,11 @@ for i in range(32):
     time.sleep(0.10)
     #============ OPÇÃO - DATA DA MATRÍCULA ==============#
     #================================ ESCOLHER MATRÍCULA ======================================#
-    def Matrícula():
-        data_do_usuário = '27/06/2025'
+    def Matrícula() :
+        data_do_usuário = '17/07/2025'
         for i in range(10):
             pyautogui.press("Backspace")
-        return pyautogui.write(data_do_usuário)
+        return pyautogui.write(data_do_usuário) 
     Matrícula() 
     time.sleep(0.10)
     pyautogui.press("tab")
@@ -58,7 +84,7 @@ for i in range(32):
     #================= OPÇÃO - CURSO =====================#
     #======== COPIA CURSO =========#
     pyautogui.hotkey('alt', 'tab') # Chrome
-    for i in range(2):
+    for i in range(2):  
         pyautogui.press("left")
     time.sleep(0.10)
     for i in range(2):
@@ -122,7 +148,7 @@ for i in range(32):
     adm()
     time.sleep(0.10)
     pyautogui.press("tab") # TECLA "tab"
-    #=============== OPÇÃO - COORDENADOR =================#
+    #================ OPÇÃO - COORDENADOR ==================#
     def Coordenador():
         Coordenador = "Marcus Vinicius Coppola Souto"
         return pyautogui.write(Coordenador)
