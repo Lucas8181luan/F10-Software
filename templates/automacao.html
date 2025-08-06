@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FGM Software - Central de Automação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b77ad;
+            --accent-color: #3182ce;
+            --success-color: #38a169;
+            --warning-color: #d69e2e;
+            --danger-color: #e53e3e;
+            --dark-color: #1a202c;
+            --light-color: #f7fafc;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2b77ad 50%, #3182ce 100%);
+            --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(247,250,252,0.8) 100%);
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--gradient-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-icon {
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 18px 25px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(45deg, #2980b9, #3498db);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+        }
+
+        .btn-warning {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(45deg, #e67e22, #f39c12);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(45deg, #c0392b, #e74c3c);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-info {
+            background: linear-gradient(45deg, #17a2b8, #138496);
+            box-shadow: 0 4px 15px rgba(23, 162, 184, 0.3);
+        }
+
+        .btn-info:hover {
+            background: linear-gradient(45deg, #138496, #17a2b8);
+            box-shadow: 0 8px 25px rgba(23, 162, 184, 0.4);
+        }
+
+        .btn-icon {
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: none;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .alert-icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9em;
+        }
+
+        .status-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .executing {
+            animation: pulse 1.5s infinite;
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .version-info {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 FGM Software - Automação</h1>
+            <p>Central de Controle PyAutoGUI - Execute suas automações com um clique</p>
+        </div>
+
+        <div class="content">
+            <div class="version-info">
+                <strong>🚀 VS Code Launch Ready</strong> | Pressione F5 para debug | Ctrl+F5 para execução normal
+            </div>
+
+            <div class="alert alert-success" id="successAlert">
+                <span class="alert-icon">✅</span>
+                <span id="successMessage"></span>
+            </div>
+            
+            <div class="alert alert-error" id="errorAlert">
+                <span class="alert-icon">❌</span>
+                <span id="errorMessage"></span>
+            </div>
+
+            <!-- Sistemas F10 -->
+            <div class="section">
+                <h2><span class="section-icon">🏢</span>Sistemas F10</h2>
+                <div class="buttons-grid">
+                    <button class="btn btn-primary" onclick="executarAutomacao('encj')" id="btn-encj">
+                        <span class="btn-icon">🎓</span>F10 - ENCJ
+                    </button>
+                    <button class="btn btn-primary" onclick="executarAutomacao('app')" id="btn-app">
+                        <span class="btn-icon">📱</span>F10 - APP
+                    </button>
+                    <button class="btn btn-primary" onclick="executarAutomacao('educario')" id="btn-educario">
+                        <span class="btn-icon">📚</span>F10 - EDUCA.RIO
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comunicação -->
+            <div class="section">
+                <h2><span class="section-icon">💬</span>Comunicação</h2>
+                <div class="buttons-grid">
+                    <button class="btn btn-success" onclick="executarAutomacao('disparo_whatsapp')" id="btn-disparo">
+                        <span class="btn-icon">📱</span>Disparo WhatsApp
+                    </button>
+                    <button class="btn btn-success" onclick="executarAutomacao('whatsapp_msg')" id="btn-whatsapp">
+                        <span class="btn-icon">📲</span>WhatsApp Mensagem
+                    </button>
+                </div>
+            </div>
+
+            <!-- Automações Gerais -->
+            <div class="section">
+                <h2><span class="section-icon">🤖</span>Automações</h2>
+                <div class="buttons-grid">
+                    <button class="btn btn-warning" onclick="executarAutomacao('bot_curso')" id="btn-bot">
+                        <span class="btn-icon">🎯</span>Bot Nome do Curso
+                    </button>
+                    <button class="btn btn-warning" onclick="executarAutomacao('incluir_turma')" id="btn-turma">
+                        <span class="btn-icon">👥</span>Incluir em Turma
+                    </button>
+                    <button class="btn btn-warning" onclick="executarAutomacao('mudar_contrato')" id="btn-contrato">
+                        <span class="btn-icon">📝</span>Mudar Contrato
+                    </button>
+                </div>
+            </div>
+
+            <!-- Utilitários -->
+            <div class="section">
+                <h2><span class="section-icon">🔧</span>Utilitários</h2>
+                <div class="buttons-grid">
+                    <button class="btn btn-danger" onclick="executarAutomacao('confirmar_cep')" id="btn-cep">
+                        <span class="btn-icon">📍</span>Confirmar CEP
+                    </button>
+                    <button class="btn btn-danger" onclick="executarAutomacao('redefinir_senha')" id="btn-senha">
+                        <span class="btn-icon">🔐</span>Redefinir Senha
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>🚀 FGM Software - Automação PyAutoGUI</strong></p>
+            <p>💻 Desenvolvido por Lucas | 🌐 Executando em: <strong>http://localhost:5000</strong></p>
+            <p>📁 VS Code Launch: Pressione <kbd>F5</kbd> para debug | <kbd>Ctrl+F5</kbd> para execução</p>
+        </div>
+    </div>
+
+    <div class="status-bar" id="statusBar">Executando...</div>
+
+    <script>
+        // Função para mostrar alertas
+        function showAlert(message, type) {
+            const successAlert = document.getElementById('successAlert');
+            const errorAlert = document.getElementById('errorAlert');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Esconder todos os alertas primeiro
+            successAlert.style.display = 'none';
+            errorAlert.style.display = 'none';
+            
+            if (type === 'success') {
+                successMessage.textContent = message;
+                successAlert.style.display = 'flex';
+            } else {
+                errorMessage.textContent = message;
+                errorAlert.style.display = 'flex';
+            }
+            
+            // Esconder alerta após 5 segundos
+            setTimeout(() => {
+                successAlert.style.display = 'none';
+                errorAlert.style.display = 'none';
+            }, 5000);
+        }
+
+        // Função para executar automação
+        async function executarAutomacao(tipo) {
+            const btn = document.getElementById(`btn-${tipo}`) || 
+                       document.getElementById(`btn-${tipo.split('_')[0]}`);
+            const statusBar = document.getElementById('statusBar');
+            
+            if (btn) {
+                btn.classList.add('executing');
+                btn.disabled = true;
+            }
+            
+            statusBar.style.display = 'block';
+            
+            const endpoints = {
+                'encj': '/executar_encj',
+                'app': '/executar_app', 
+                'educario': '/executar_educario',
+                'disparo_whatsapp': '/executar_disparo_whatsapp',
+                'whatsapp_msg': '/executar_whatsapp_msg',
+                'bot_curso': '/executar_bot_curso',
+                'incluir_turma': '/executar_incluir_turma',
+                'mudar_contrato': '/executar_mudar_contrato',
+                'confirmar_cep': '/executar_confirmar_cep',
+                'redefinir_senha': '/executar_redefinir_senha'
+            };
+            
+            const endpoint = endpoints[tipo];
+            if (!endpoint) {
+                showAlert('Automação não encontrada', 'error');
+                if (btn) {
+                    btn.classList.remove('executing');
+                    btn.disabled = false;
+                }
+                statusBar.style.display = 'none';
+                return;
+            }
+            
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert(result.message, 'success');
+                } else {
+                    showAlert(result.error || 'Erro ao executar automação', 'error');
+                }
+            } catch (error) {
+                showAlert('Erro de conexão: ' + error.message, 'error');
+            } finally {
+                if (btn) {
+                    btn.classList.remove('executing');
+                    btn.disabled = false;
+                }
+                setTimeout(() => {
+                    statusBar.style.display = 'none';
+                }, 2000);
+            }
+        }
+
+        // Mensagem de boas-vindas
+        window.onload = function() {
+            showAlert('🎉 Central de Automação carregada! Pronto para executar automações PyAutoGUI', 'success');
+        }
+    </script>
+</body>
+</html>

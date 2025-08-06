@@ -1,0 +1,21 @@
+{
+    "python.defaultInterpreterPath": "python",
+    "python.terminal.activateEnvironment": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "black",
+    "files.associations": {
+        "*.py": "python"
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#1e3c72",
+        "titleBar.activeBackground": "#2a5298",
+        "statusBar.background": "#667eea"
+    },
+    "workbench.startupEditor": "welcomePage",
+    "extensions.ignoreRecommendations": false,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic"
+}

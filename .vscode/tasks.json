@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "🚀 Iniciar Site FGM",
+            "type": "shell",
+            "command": "python",
+            "args": ["app_automacao.py"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "isBackground": true,
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "📦 Instalar Dependências",
+            "type": "shell",
+            "command": "pip",
+            "args": ["install", "flask", "pyautogui", "requests", "pandas"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "🌐 Abrir Site no Navegador",
+            "type": "shell",
+            "command": "start",
+            "args": ["http://localhost:5000"],
+            "group": "test",
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "windows": {
+                "command": "start",
+                "args": ["http://localhost:5000"]
+            }
+        }
+    ]
+}

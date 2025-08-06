@@ -1,0 +1,90 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "🚀 FGM Software - Automação Web",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/app_automacao.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "1"
+            },
+            "args": [],
+            "justMyCode": true,
+            "stopOnEntry": false,
+            "presentation": {
+                "hidden": false,
+                "group": "FGM Software",
+                "order": 1
+            }
+        },
+        {
+            "name": "🎓 F10 ENCJ - Direto",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/F10 - ENCJ/Sistema5.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "hidden": false,
+                "group": "FGM Software",
+                "order": 2
+            }
+        },
+        {
+            "name": "📱 F10 APP - Direto",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/F10 - APP/Sistema.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "hidden": false,
+                "group": "F10 Software",
+                "order": 3
+            }
+        },
+        {
+            "name": "📚 F10 EDUCA.RIO - Direto",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/F10 - EDUCA.RIO/Sistema4.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "hidden": false,
+                "group": "F10 Software",
+                "order": 4
+            }
+        },
+        {
+            "name": "🤖 Bot Nome do Curso - Direto",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/bot_NomeDoCurso.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "hidden": false,
+                "group": "F10 Software",
+                "order": 5
+            }
+        },
+        {
+            "name": "🔍 Pessoa ID - Direto",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/pessoa_id.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "hidden": false,
+                "group": "F10 Software",
+                "order": 6
+            }
+        }
+    ]
+}

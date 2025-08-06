@@ -70,4 +70,6 @@ def DISPARO():
                 )
         time.sleep(10)
 
-DISPARO()
+# Executar apenas se chamado diretamente
+if __name__ == "__main__":
+    DISPARO()

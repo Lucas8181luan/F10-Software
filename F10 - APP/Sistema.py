@@ -242,8 +242,11 @@ def Reiniciar_programa():
     script = sys.argv[0]
     subprocess.call([python, script] + sys.argv[1:])
 
-Reiniciar_programa()
+def executar_app():
+    """Função principal para executar APP"""
+    Reiniciar_programa()
+    F10_BOT() 
 
-#== Play ==#
-F10_BOT() 
-#==========#
+# Executar apenas se chamado diretamente
+if __name__ == "__main__":
+    executar_app()

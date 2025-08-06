@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F10 Software - Central de Controle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(45deg, #2980b9, #3498db);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+        }
+
+        .btn-warning {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(45deg, #e67e22, #f39c12);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(45deg, #c0392b, #e74c3c);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        .icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 F10 Software</h1>
+            <p>Central de Controle - Todas as funcionalidades em um só lugar</p>
+        </div>
+
+        <div class="content">
+            <!-- Seção de Busca de Contratos -->
+            <div class="section">
+                <h2><span class="icon">🔍</span>Buscar Contratos por ID</h2>
+                <div class="alert alert-success" id="successAlert"></div>
+                <div class="alert alert-error" id="errorAlert"></div>
+                
+                <div class="form-group">
+                    <label for="unidadeId">ID da Unidade:</label>
+                    <input type="text" id="unidadeId" class="form-control" value="831" placeholder="Ex: 831">
+                </div>
+                
+                <div class="form-group">
+                    <label for="pessoaId">ID da Pessoa:</label>
+                    <input type="text" id="pessoaId" class="form-control" placeholder="Ex: 166374">
+                </div>
+                
+                <button class="btn btn-success" onclick="buscarContratos()">
+                    <span class="icon">📊</span>Buscar Contratos
+                </button>
+                
+                <div class="loading" id="loadingContratos">
+                    <div class="spinner"></div>
+                    <p>Buscando contratos...</p>
+                </div>
+            </div>
+
+            <!-- Seção F10 Sistemas -->
+            <div class="section">
+                <h2><span class="icon">⚙️</span>F10 - Sistemas Principais</h2>
+                <div class="buttons-grid">
+                    <button class="btn" onclick="executarSistema('encj')">
+                        <span class="icon">🎓</span>F10 - ENCJ
+                    </button>
+                    <button class="btn" onclick="executarSistema('app')">
+                        <span class="icon">📱</span>F10 - APP
+                    </button>
+                    <button class="btn" onclick="executarSistema('educario')">
+                        <span class="icon">📚</span>F10 - EDUCA.RIO
+                    </button>
+                </div>
+            </div>
+
+            <!-- Seção Automação -->
+            <div class="section">
+                <h2><span class="icon">🤖</span>Automação e Bots</h2>
+                <div class="buttons-grid">
+                    <button class="btn btn-warning" onclick="executarSistema('bot_curso')">
+                        <span class="icon">🎯</span>Bot Nome do Curso
+                    </button>
+                    <button class="btn btn-warning" onclick="executarSistema('incluir_turma')">
+                        <span class="icon">👥</span>Incluir em Turma
+                    </button>
+                    <button class="btn btn-warning" onclick="executarSistema('mudar_contrato')">
+                        <span class="icon">📝</span>Mudar Número de Contrato
+                    </button>
+                </div>
+            </div>
+
+            <!-- Seção Comunicação -->
+            <div class="section">
+                <h2><span class="icon">💬</span>Comunicação</h2>
+                <div class="buttons-grid">
+                    <button class="btn btn-success" onclick="executarSistema('disparo_whatsapp')">
+                        <span class="icon">📱</span>Disparo WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Seção Utilitários -->
+            <div class="section">
+                <h2><span class="icon">🔧</span>Utilitários</h2>
+                <div class="buttons-grid">
+                    <button class="btn btn-danger" onclick="executarSistema('confirmar_cep')">
+                        <span class="icon">📍</span>Confirmar CEP
+                    </button>
+                    <button class="btn btn-danger" onclick="executarSistema('redefinir_senha')">
+                        <span class="icon">🔐</span>Redefinir Senha
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 F10 Software - Desenvolvido por Lucas | Versão 1.0</p>
+        </div>
+    </div>
+
+    <script>
+        // Função para mostrar alertas
+        function showAlert(message, type) {
+            const successAlert = document.getElementById('successAlert');
+            const errorAlert = document.getElementById('errorAlert');
+            
+            if (type === 'success') {
+                successAlert.textContent = message;
+                successAlert.style.display = 'block';
+                errorAlert.style.display = 'none';
+            } else {
+                errorAlert.textContent = message;
+                errorAlert.style.display = 'block';
+                successAlert.style.display = 'none';
+            }
+            
+            // Esconder alerta após 5 segundos
+            setTimeout(() => {
+                successAlert.style.display = 'none';
+                errorAlert.style.display = 'none';
+            }, 5000);
+        }
+
+        // Função para buscar contratos
+        async function buscarContratos() {
+            const unidadeId = document.getElementById('unidadeId').value;
+            const pessoaId = document.getElementById('pessoaId').value;
+            const loading = document.getElementById('loadingContratos');
+            
+            if (!pessoaId) {
+                showAlert('Por favor, insira o ID da pessoa', 'error');
+                return;
+            }
+            
+            loading.style.display = 'block';
+            
+            try {
+                const response = await fetch('/buscar_contratos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        unidade_id: unidadeId,
+                        pessoa_id: pessoaId
+                    })
+                });
+                
+                const result = await response.json();
+                loading.style.display = 'none';
+                
+                if (result.success) {
+                    showAlert(result.message, 'success');
+                } else {
+                    showAlert(result.message || 'Erro ao buscar contratos', 'error');
+                }
+            } catch (error) {
+                loading.style.display = 'none';
+                showAlert('Erro de conexão: ' + error.message, 'error');
+            }
+        }
+
+        // Função para executar sistemas
+        async function executarSistema(sistema) {
+            const endpoints = {
+                'encj': '/executar_encj',
+                'app': '/executar_app',
+                'educario': '/executar_educario',
+                'bot_curso': '/executar_bot_curso',
+                'incluir_turma': '/executar_incluir_turma',
+                'mudar_contrato': '/executar_mudar_contrato',
+                'disparo_whatsapp': '/executar_disparo_whatsapp',
+                'confirmar_cep': '/executar_confirmar_cep',
+                'redefinir_senha': '/executar_redefinir_senha'
+            };
+            
+            const endpoint = endpoints[sistema];
+            if (!endpoint) {
+                showAlert('Sistema não encontrado', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert(result.message, 'success');
+                } else {
+                    showAlert(result.error || 'Erro ao executar sistema', 'error');
+                }
+            } catch (error) {
+                showAlert('Erro de conexão: ' + error.message, 'error');
+            }
+        }
+
+        // Permitir Enter no campo de busca
+        document.getElementById('pessoaId').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                buscarContratos();
+            }
+        });
+    </script>
+</body>
+</html>
