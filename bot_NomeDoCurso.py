@@ -1,6 +1,10 @@
 import pyautogui as py
 import time
 
+# Configurações de segurança do pyautogui
+py.FAILSAFE = True
+py.PAUSE = 0.1
+
 def executar_bot_curso():
     """Função principal para executar o bot de nome do curso"""
     time.sleep(5)

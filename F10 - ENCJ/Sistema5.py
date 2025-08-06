@@ -2,6 +2,10 @@ import pyautogui
 import time
 import pyperclip
 
+# Configurações de segurança do pyautogui
+pyautogui.FAILSAFE = True
+pyautogui.PAUSE = 0.1
+
 def executar_encj():
     """Função principal para executar a automação ENCJ"""
     time.sleep(5)

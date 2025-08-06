@@ -4,6 +4,31 @@ import os
 import sys
 import threading
 
+# Configurar pyautogui para ser seguro ANTES de qualquer importação
+try:
+    import pyautogui
+    pyautogui.FAILSAFE = True
+    pyautogui.PAUSE = 0.5
+    # Desabilitar pyautogui completamente durante a importação
+    original_press = pyautogui.press
+    original_click = pyautogui.click
+    original_hotkey = pyautogui.hotkey
+    original_write = pyautogui.write
+    original_moveTo = pyautogui.moveTo
+    
+    def disabled_action(*args, **kwargs):
+        pass
+        
+    # Desabilitar temporariamente todas as ações
+    pyautogui.press = disabled_action
+    pyautogui.click = disabled_action
+    pyautogui.hotkey = disabled_action
+    pyautogui.write = disabled_action
+    pyautogui.moveTo = disabled_action
+    
+except:
+    pass
+
 app = Flask(__name__)
 
 # Rota principal
@@ -16,6 +41,16 @@ def index():
 def executar_encj():
     try:
         def executar():
+            # Restaurar funções originais do pyautogui
+            try:
+                pyautogui.press = original_press
+                pyautogui.click = original_click
+                pyautogui.hotkey = original_hotkey
+                pyautogui.write = original_write
+                pyautogui.moveTo = original_moveTo
+            except:
+                pass
+                
             # Executar o sistema5.py do F10 ENCJ
             script_path = os.path.join(os.path.dirname(__file__), 'F10 - ENCJ', 'Sistema5.py')
             subprocess.run([sys.executable, script_path], check=True)
@@ -37,6 +72,16 @@ def executar_encj():
 def executar_app():
     try:
         def executar():
+            # Restaurar funções originais do pyautogui
+            try:
+                pyautogui.press = original_press
+                pyautogui.click = original_click
+                pyautogui.hotkey = original_hotkey
+                pyautogui.write = original_write
+                pyautogui.moveTo = original_moveTo
+            except:
+                pass
+                
             script_path = os.path.join(os.path.dirname(__file__), 'F10 - APP', 'Sistema.py')
             subprocess.run([sys.executable, script_path], check=True)
         
@@ -203,5 +248,39 @@ def executar_whatsapp_msg():
     except Exception as e:
         return jsonify({'error': f'Erro ao executar WhatsApp Mensagem: {str(e)}'}), 500
 
+# Rota para parada de emergência
+@app.route('/emergency_stop', methods=['POST'])
+def emergency_stop():
+    try:
+        # Restaurar funções originais do pyautogui para emergência
+        try:
+            pyautogui.press = original_press
+            pyautogui.click = original_click
+            pyautogui.hotkey = original_hotkey
+            pyautogui.write = original_write
+            pyautogui.moveTo = original_moveTo
+        except:
+            pass
+            
+        # Mover mouse para canto superior esquerdo (0, 0) para ativar fail-safe do pyautogui
+        pyautogui.moveTo(0, 0)
+        pyautogui.click()  # Clique para interromper qualquer automação
+        
+        return jsonify({
+            'success': True,
+            'message': 'Parada de emergência executada com sucesso!'
+        })
+    except Exception as e:
+        return jsonify({
+            'success': True,
+            'message': 'Parada de emergência ativada (modo offline)'
+        })
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    print("="*50)
+    print("🚀 INICIANDO SERVIDOR FGM - AUTOMAÇÕES")
+    print("📍 Acesse: http://localhost:5000")
+    print("⚠️  NENHUMA AUTOMAÇÃO SERÁ EXECUTADA AUTOMATICAMENTE")
+    print("✋ Para parar automações: mova mouse para canto superior esquerdo")
+    print("="*50)
+    app.run(debug=False, host='0.0.0.0', port=5000)

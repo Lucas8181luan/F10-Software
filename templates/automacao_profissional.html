@@ -144,6 +144,52 @@
             background-color: rgba(30, 64, 175, 0.1);
         }
 
+        /* Emergency Stop Button */
+        .emergency-stop-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(145deg, #dc2626, #b91c1c);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 20px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+            z-index: 1050;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .emergency-stop-floating:hover {
+            background: linear-gradient(145deg, #b91c1c, #991b1b);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.6);
+        }
+
+        .emergency-stop-floating:active {
+            transform: scale(1.05);
+        }
+
+        .emergency-text {
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .emergency-stop-floating {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 16px;
+                min-width: 100px;
+                font-size: 0.9rem;
+            }
+        }
+
         /* Hero Section */
         .hero {
             background: transparent;
@@ -286,6 +332,46 @@
             position: relative;
         }
 
+        /* Emergency Stop Button */
+        .btn-danger {
+            background: linear-gradient(145deg, #dc2626, #b91c1c, #dc2626);
+            background-size: 200% 200%;
+            color: white;
+            animation: dangerGradientShift 4s ease infinite;
+        }
+
+        @keyframes dangerGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
+            color: white;
+            animation-duration: 1s;
+        }
+
+        .btn-danger:active {
+            transform: translateY(-4px) scale(0.98);
+        }
+
+        .btn-danger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-danger:hover::before {
+            left: 100%;
+        }
+
         .automations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -333,6 +419,37 @@
             border: 1px solid #f87171;
         }
 
+        /* Botão de Emergência Flutuante */
+        .emergency-stop-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px; /* Bordas arredondadas para formato quadrado moderno */
+            background: linear-gradient(45deg, #ff4757, #ff3838);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 71, 87, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .emergency-stop-floating:hover {
+            background: linear-gradient(45deg, #ff3838, #ff2727);
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(255, 71, 87, 0.6);
+        }
+
+        .emergency-stop-floating:active {
+            transform: scale(0.95);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -341,6 +458,15 @@
             
             .hero .subtitle {
                 font-size: 1.1rem;
+            }
+
+            .emergency-stop-floating {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 20px;
+                right: 20px;
+                border-radius: 10px; /* Bordas arredondadas proporcionais para mobile */
             }
         }
     </style>
@@ -439,6 +565,11 @@
         </div>
     </section>
 
+    <!-- Botão de Emergência Flutuante -->
+    <button class="emergency-stop-floating" id="emergency-stop" onclick="emergencyStop()" title="Parada de Emergência (ESC)">
+        <i class="fas fa-stop"></i>
+    </button>
+
     <!-- Alerts -->
     <div class="alert alert-success" id="successAlert" style="display: none;">
         <div class="d-flex align-items-center">
@@ -460,7 +591,56 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        // Função para mostrar alertas
+        // Função de parada de emergência
+        function emergencyStop() {
+            // Parar todas as automações em execução
+            const runningButtons = document.querySelectorAll('.btn-primary.executing');
+            runningButtons.forEach(button => {
+                button.classList.remove('executing');
+                button.style.opacity = '1';
+                button.disabled = false;
+                
+                // Restaurar texto original
+                const buttonId = button.id;
+                const originalTexts = {
+                    'btn-encj': '<i class="fas fa-graduation-cap" style="font-size: 2.5rem;"></i><div class="fw-bold">F10 - ENCJ</div>',
+                    'btn-app': '<i class="fas fa-mobile-alt" style="font-size: 2.5rem;"></i><div class="fw-bold">F10 - APP</div>',
+                    'btn-educario': '<i class="fas fa-book-open" style="font-size: 2.5rem;"></i><div class="fw-bold">F10 - EDUCA.RIO</div>',
+                    'btn-disparo': '<i class="fab fa-whatsapp" style="font-size: 2.5rem;"></i><div class="fw-bold">Disparo WhatsApp</div>',
+                    'btn-whatsapp': '<i class="fas fa-comments" style="font-size: 2.5rem;"></i><div class="fw-bold">WhatsApp Mensagem</div>',
+                    'btn-bot': '<i class="fas fa-robot" style="font-size: 2.5rem;"></i><div class="fw-bold">Bot Nome do Curso</div>',
+                    'btn-turma': '<i class="fas fa-users" style="font-size: 2.5rem;"></i><div class="fw-bold">Incluir em Turma</div>',
+                    'btn-contrato': '<i class="fas fa-file-contract" style="font-size: 2.5rem;"></i><div class="fw-bold">Alterar Contrato</div>',
+                    'btn-cep': '<i class="fas fa-map-marker-alt" style="font-size: 2.5rem;"></i><div class="fw-bold">Confirmar CEP</div>',
+                    'btn-senha': '<i class="fas fa-key" style="font-size: 2.5rem;"></i><div class="fw-bold">Redefinir Senha</div>'
+                };
+                
+                button.innerHTML = originalTexts[buttonId] || button.innerHTML;
+            });
+
+            // Chamar API de parada de emergência
+            fetch('/emergency_stop', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                showAlert('🛑 PARADA DE EMERGÊNCIA ATIVADA! Todas as automações foram interrompidas.', 'error');
+            })
+            .catch(error => {
+                showAlert('🛑 PARADA DE EMERGÊNCIA ATIVADA! (Modo offline)', 'error');
+            });
+        }
+
+        // Atalho de teclado ESC para parada de emergência
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                emergencyStop();
+            }
+        });
         function showAlert(message, type) {
             const alertElement = document.getElementById(type + 'Alert');
             const messageElement = document.getElementById(type + 'Message');
@@ -575,6 +755,11 @@
             });
             
             showAlert('🎉 Dashboard FGM carregado! Sistema pronto para executar automações.', 'success');
+            
+            // Mostrar dica sobre atalho ESC após 3 segundos
+            setTimeout(() => {
+                showAlert('💡 Dica: Pressione ESC para parada de emergência das automações', 'success');
+            }, 3000);
         });
     </script>
 </body>

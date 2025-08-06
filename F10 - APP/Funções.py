@@ -10,6 +10,10 @@ import sys
 import os
 import pyperclip
 
+# Configurações de segurança do pyautogui
+pyautogui.FAILSAFE = True
+pyautogui.PAUSE = 0.1
+
 #================================= ACHAR POSITION =========================================#
 def achar_position():
     time.sleep(8)
@@ -327,3 +331,7 @@ def Esconder_tecla():
     screen_width, screen_height = pyautogui.size() # Obtém a resolução da tela (largura e altura)
     pyautogui.moveTo(screen_width // 2, screen_height // 2) # Move o cursor para o centro da tela
     pyautogui.moveTo(screen_width - 1, screen_height // 2) # Move o cursor para a borda direita da tela
+
+# Proteção contra execução automática
+if __name__ == "__main__":
+    print("Arquivo Funções.py - Nenhuma função executada automaticamente")
